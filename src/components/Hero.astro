@@ -1,0 +1,30 @@
+---
+import Reveal from "./Reveal.astro";
+import AnimatedPhone from "./AnimatedPhone.astro";
+---
+
+<section class="hero">
+  <div class="container hero__grid">
+    <Reveal class="hero__content" delay={40}>
+      <h1>
+        Convierte ideas
+        <br />
+        en clientes
+        <span class="hero-face" aria-label="carita animada">
+          <span class="hero-face__wink">;)</span>
+          <span class="hero-face__open">:)</span>
+        </span>
+      </h1>
+      <p class="hero__lead">
+        <strong>Llega a tus clientes</strong> con ideas que marcan la diferencia.
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary hero__button" href="https://kitstation.pe/empezar-con-kit/">Empezar ahora →</a>
+      </div>
+    </Reveal>
+
+    <div class="hero__visual">
+      <AnimatedPhone />
+    </div>
+  </div>
+</section>

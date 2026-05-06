@@ -1,0 +1,171 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+
+interface Props {
+  pageTitle: string;
+  metaDescription: string;
+  title: string;
+  subtitle?: string;
+  accent: string;
+  panelColor: string;
+}
+
+const {
+  pageTitle,
+  metaDescription,
+  title,
+  subtitle = "",
+  accent,
+  panelColor
+} = Astro.props;
+---
+
+<BaseLayout title={pageTitle} description={metaDescription}>
+  <main class="service-form-page" style={`--service-accent:${accent}; --service-panel:${panelColor};`}>
+    <section class="service-form-page__split">
+      <div class="service-form-page__left">
+        <div class="service-form-page__content">
+          <h1>{title}</h1>
+          {subtitle && <p class="service-form-page__subtitle">{subtitle}</p>}
+
+          <form class="service-form-page__form">
+            <input type="text" name="company" placeholder="Nombre de Empresa" />
+            <input type="email" name="email" placeholder="Correo" />
+            <input type="tel" name="phone" placeholder="Celular" />
+            <textarea name="message" placeholder="Mensaje"></textarea>
+            <button type="submit">ENVIAR</button>
+          </form>
+
+          <p class="service-form-page__privacy">
+            Al avanzar, aceptas las <a href="https://kitstation.pe/politicas-y-privacidad/">Politica de privacidad</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="service-form-page__right">
+        <div class="service-form-page__video-slot" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .service-form-page {
+    min-height: 100vh;
+    background: #000;
+  }
+
+  .service-form-page__split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+  }
+
+  .service-form-page__left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    padding: 48px 32px;
+  }
+
+  .service-form-page__content {
+    width: min(100%, 450px);
+    text-align: center;
+    color: #fff;
+  }
+
+  .service-form-page__content h1 {
+    margin: 0;
+    font-size: clamp(1.9rem, 2.7vw, 2.9rem);
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.04em;
+  }
+
+  .service-form-page__subtitle {
+    margin: 34px 0 20px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .service-form-page__form {
+    display: grid;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .service-form-page__form input,
+  .service-form-page__form textarea {
+    width: 100%;
+    border: 0;
+    border-radius: 6px;
+    background: #fff;
+    color: #111;
+    padding: 0 16px;
+    font-size: 0.98rem;
+    outline: none;
+  }
+
+  .service-form-page__form input {
+    height: 46px;
+  }
+
+  .service-form-page__form textarea {
+    min-height: 120px;
+    padding-top: 14px;
+    resize: vertical;
+  }
+
+  .service-form-page__form button {
+    height: 46px;
+    border: 0;
+    border-radius: 6px;
+    background: #3325ff;
+    color: #fff;
+    font-size: 0.96rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .service-form-page__privacy {
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.92rem;
+  }
+
+  .service-form-page__privacy a {
+    color: #2382ff;
+  }
+
+  .service-form-page__right {
+    min-height: 100vh;
+    background: var(--service-panel);
+  }
+
+  .service-form-page__video-slot {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 900px) {
+    .service-form-page__split {
+      grid-template-columns: 1fr;
+    }
+
+    .service-form-page__left {
+      min-height: 100vh;
+      padding: 40px 24px;
+    }
+
+    .service-form-page__right {
+      display: none;
+    }
+
+    .service-form-page__content {
+      width: min(100%, 440px);
+    }
+  }
+</style>

@@ -1,0 +1,368 @@
+---
+import Reveal from "./Reveal.astro";
+
+const solutionTopics = [
+  { label: "Alcance", icon: "globe" },
+  { label: "Ventas", icon: "sales" },
+  { label: "Contenido", icon: "content" },
+  { label: "Animaciones", icon: "film" },
+  { label: "Consultorias", icon: "people" },
+  { label: "Campanas", icon: "megaphone" },
+  { label: "Publicidad", icon: "play" },
+  { label: "Integraciones", icon: "pin" },
+  { label: "Diseno", icon: "design" },
+  { label: "GPT4o", icon: "gpt" }
+];
+
+const solutionPanels = [
+  {
+    label: "Alcance",
+    image: "/images/solutions/alcande-para-tu-negocio-kitstation-1300x555.webp",
+    mobileImage: "https://kitstation.pe/wp-content/uploads/2025/07/alcande-para-tu-negocio-kitstation-cel-800x800.webp",
+    alt: "Alcance para tu negocio KitStation"
+  },
+  {
+    label: "Ventas",
+    image: "/images/solutions/mas-ventas-para-tu-negocio-kitstation-1300x555.webp",
+    mobileImage: "https://kitstation.pe/wp-content/uploads/2025/07/mas-ventas-para-tu-negocio-kitstation-cel-800x800.webp",
+    alt: "Mas ventas para tu negocio KitStation"
+  },
+  {
+    label: "Contenido",
+    image: "/images/solutions/mejora-el-contenido-de-marca-kitstation-1300x555.webp",
+    mobileImage: "https://kitstation.pe/wp-content/uploads/2025/07/mejora-el-contenido-de-marca-kitstation-cel-800x800.webp",
+    alt: "Mejora el contenido de marca KitStation"
+  },
+  {
+    label: "Animaciones",
+    image: "/images/solutions/animacion-2d-y-3d-kitstation-1300x555.webp",
+    mobileImage: "https://kitstation.pe/wp-content/uploads/2025/07/animacion-2d-y-3d-kitstation-cel-800x800.webp",
+    alt: "Animacion 2D y 3D KitStation"
+  },
+  {
+    label: "Consultorias",
+    image: "/images/solutions/consultoria-para-empresas-kitstation-1300x555.webp",
+    mobileImage: "https://kitstation.pe/wp-content/uploads/2025/07/consultoria-para-empresas-kitstation-cel-800x800.webp",
+    alt: "Consultoria para empresas KitStation"
+  },
+  {
+    label: "Campanas",
+    image: "/images/solutions/campanas-para-redes-sociales-kitstation-1300x555.webp",
+    mobileImage: "https://kitstation.pe/wp-content/uploads/2025/07/campanas-para-redes-sociales-kitstation-cel-800x800.webp",
+    alt: "Campanas para redes sociales KitStation"
+  },
+  {
+    label: "Publicidad",
+    image: "/images/solutions/mejora-la-plucidad-de-tu-negocio-kitstation-1300x555.webp",
+    mobileImage: "https://kitstation.pe/wp-content/uploads/2025/07/mejora-la-plucidad-de-tu-negocio-kitstation-cel-800x800.webp",
+    alt: "Mejora la publicidad de tu negocio KitStation"
+  },
+  {
+    label: "Integraciones",
+    image: "/images/solutions/integracion-informatica-red-kitstation-1300x555.webp",
+    mobileImage: "https://kitstation.pe/wp-content/uploads/2025/07/integracion-informatica-red-kitstation-cel-800x800.webp",
+    alt: "Integracion informatica en red KitStation"
+  },
+  {
+    label: "Diseno",
+    image: "/images/solutions/diseno-grafico-y-de-interfaz-kitstation-1300x555.webp",
+    mobileImage: "https://kitstation.pe/wp-content/uploads/2025/07/diseno-grafico-y-de-interfaz-kitstation-cel-800x800.webp",
+    alt: "Diseno grafico y de interfaz KitStation"
+  },
+  {
+    label: "GPT4o",
+    image: "/images/solutions/auto-ia-imagen-1300x555.webp",
+    mobileImage: "https://kitstation.pe/wp-content/uploads/2025/08/auto-ia-imagen-celular-800x800.webp",
+    alt: "Automatizacion con IA GPT4o KitStation"
+  }
+];
+
+const resultCards = [
+  "Piezas visuales para marcas que necesitan mas claridad comercial.",
+  "Implementaciones de IA y WhatsApp enfocadas en conversion.",
+  "Landing pages y websites con estructura limpia y rendimiento real.",
+  "Campanas, contenido y SEO con enfoque de crecimiento medible."
+];
+
+const performanceCards = [
+  {
+    eyebrow: "Trabajamos con",
+    title: "Experiencia y Profesionalismo",
+    copy:
+      "Contamos con experiencia en el sector, ayudando a negocios a crecer mediante soluciones creativas y tecnológicas. Nuestro equipo combina conocimiento y habilidades para ofrecer resultados de alta calidad en cada proyecto.",
+    icon: "handshake"
+  },
+  {
+    eyebrow: "Brindamos para tu negocio",
+    title: "Resultados Comprobados",
+    copy:
+      "Hemos trabajado con clientes de diferentes industrias, logrando impulsar su crecimiento y posicionamiento. Cada solución que ofrecemos está respaldada por un historial de casos de éxito que avalan nuestro compromiso con la excelencia y los resultados.",
+    icon: "trophy"
+  },
+  {
+    eyebrow: "Te aseguramos",
+    title: "Compromiso Personalizado",
+    copy:
+      "Sabemos que cada negocio tiene necesidades únicas. Por eso, trabajamos de cerca contigo para entender tus metas y desafíos, asegurándonos de ofrecerte soluciones personalizadas que realmente marquen la diferencia en tu operación.",
+    icon: "gears"
+  },
+  {
+    eyebrow: "Estamos en",
+    title: "Innovación Constante",
+    copy:
+      "Nos apasiona la tecnología y la creatividad. Nos mantenemos al día con las últimas tendencias y herramientas del mercado para garantizar que cada solución que implementamos sea innovadora, eficiente y relevante para el éxito de tu negocio.",
+    icon: "bulb"
+  }
+];
+
+const serviceHubCards = [
+  {
+    key: "hub-default",
+    title: "Vista general",
+    image: "",
+    alt: "",
+    className: ""
+  },
+  {
+    key: "hub-two-d",
+    title: "Animacion 2D",
+    image: "/images/service-hub/servicios-web-copia5.png",
+    alt: "Tarjeta de Animacion 2D KitStation",
+    className: "hub-card hub-card--two-d",
+    video: "https://kitstation.pe/wp-content/uploads/2025/06/animacion-2d-para-tu-negocio-kitstation.mp4",
+    description:
+      "Dale vida a tus ideas con animaciones dinamicas y expresivas en 2D. Desde videos explicativos hasta contenido publicitario y branding digital, creamos piezas visuales con ritmo, claridad y personalidad."
+  },
+  {
+    key: "hub-three-d",
+    title: "Animacion 3D",
+    image: "/images/service-hub/servicios-animacion-3d-2.webp",
+    alt: "Tarjeta de Animacion 3D KitStation",
+    className: "hub-card hub-card--three-d",
+    video: "https://kitstation.pe/wp-content/uploads/2025/06/3d-nuevo-kit.mp4",
+    description:
+      "Creamos animaciones 3D realistas y envolventes para productos, personajes y entornos. Una solucion visual pensada para presentar marcas con mas profundidad, detalle e impacto."
+  },
+  {
+    key: "hub-fx",
+    title: "Efectos Especiales",
+    image: "/images/service-hub/servicios-efectos-especiales-2.webp",
+    alt: "Tarjeta de efectos especiales KitStation",
+    className: "hub-card hub-card--fx",
+    video: "https://kitstation.pe/wp-content/uploads/2025/06/efectos-especiales-video-ignacio.mp4",
+    description:
+      "Potenciamos tus producciones con efectos visuales de alto impacto. Desde integraciones y composicion hasta postproduccion avanzada, elevamos cada escena con precision visual."
+  },
+  {
+    key: "hub-cgi",
+    title: "CGI",
+    image: "/images/service-hub/servicios-cgi-1.webp",
+    alt: "Tarjeta de CGI KitStation",
+    className: "hub-card hub-card--cgi",
+    video: "https://kitstation.pe/wp-content/uploads/2025/06/cgi.mp4",
+    description:
+      "Desarrollamos piezas CGI para publicidad, branding y contenido digital con acabados cinematograficos. Ideal para mostrar conceptos imposibles con control total sobre cada detalle."
+  },
+  {
+    key: "hub-web",
+    title: "Diseno Web",
+    image: "/images/service-hub/seguimiento-copia.webp",
+    alt: "Tarjeta de Diseno Web KitStation",
+    className: "hub-card hub-card--web",
+    video: "",
+    description:
+      "Disenamos experiencias web claras, modernas y enfocadas en conversion. Landing pages, sitios corporativos y interfaces visuales que ordenan tu propuesta y la presentan con fuerza."
+  }
+];
+---
+
+<section class="about" id="soluciones">
+  <div class="container">
+    <Reveal class="solutions-strip" delay={0}>
+      <h2>Soluciones especificas<br />para tu empresa.</h2>
+
+      <div class="solutions-slider" data-topic-slider>
+        <button class="solutions-slider__arrow solutions-slider__arrow--prev" type="button" aria-label="Tema anterior" data-topic-prev>
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path
+              fill-rule="evenodd"
+              d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"
+            />
+          </svg>
+        </button>
+
+        <div class="solutions-slider__viewport">
+          <div class="solutions-slider__track" data-topic-track>
+            {solutionTopics.map((topic, index) => (
+              <button
+                class="solutions-topic"
+                type="button"
+                data-topic-item
+                data-topic-index={index}
+                aria-pressed="false"
+              >
+                <span class="solutions-topic__icon" data-icon={topic.icon}>
+                  <img src={`/icons/solutions/${topic.icon}.svg`} alt="" aria-hidden="true" loading="lazy" />
+                </span>
+                <span class="solutions-topic__label">{topic.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <button class="solutions-slider__arrow solutions-slider__arrow--next" type="button" aria-label="Tema siguiente" data-topic-next>
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path
+              fill-rule="evenodd"
+              d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div class="solutions-showcase" data-topic-panels>
+        {solutionPanels.map((panel, index) => (
+          <article class="solutions-panel" data-topic-panel data-topic-index={index}>
+            <picture>
+              <source media="(max-width: 768px)" srcset={panel.mobileImage} />
+              <img src={panel.image} alt={panel.alt} loading="lazy" />
+            </picture>
+          </article>
+        ))}
+      </div>
+    </Reveal>
+  </div>
+</section>
+
+<section class="service-hub" id="servicios-hub">
+  <div class="container">
+    <Reveal class="service-hub__intro" delay={0}>
+      <h2>Los servicios que necesitas<br />en un solo lugar</h2>
+    </Reveal>
+
+    <Reveal class="service-hub__board" delay={40}>
+      {serviceHubCards.map((card, index) => (
+        <input
+          class="service-hub__toggle"
+          type="radio"
+          name="service-hub-slide"
+          id={card.key}
+          checked={index === 0}
+        />
+      ))}
+
+      <div class="service-hub__chrome">
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="service-hub__sidebar" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="service-hub__grid"></div>
+
+      <div class="service-hub__lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      {serviceHubCards.filter((card) => card.className).map((card) => (
+        <article class={card.className}>
+          <label class="hub-card__link ripple-image" for={card.key} aria-label={`Ver ${card.title}`}>
+            <div class="hub-card__media">
+              <img src={card.image} alt={card.alt} loading="lazy" />
+            </div>
+          </label>
+        </article>
+      ))}
+    </Reveal>
+
+    <div class="service-hub__slides">
+      {serviceHubCards
+        .filter((card) => card.key !== "hub-default")
+        .map((card) => (
+          <article class={`service-slide service-slide--${card.key.replace("hub-", "")}`}>
+            <label class="service-slide__back" for="hub-default">
+              <span aria-hidden="true">←</span> Atras
+            </label>
+
+            <div class="service-slide__copy">
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+            </div>
+
+            <div class={`service-slide__media${card.video ? "" : " service-slide__media--static"}`}>
+              {card.video ? (
+                <video autoplay muted playsinline loop preload="metadata">
+                  <source src={card.video} type="video/mp4" />
+                </video>
+              ) : (
+                <img src={card.image} alt={card.alt} loading="lazy" />
+              )}
+            </div>
+          </article>
+        ))}
+    </div>
+
+    <div class="service-hub__actions">
+      <a class="button button--ghost service-hub__button" href="https://kitstation.pe/empezar-con-kit/">Empezar ahora</a>
+    </div>
+  </div>
+</section>
+
+<section class="performance-panel" id="rendimiento">
+  <div class="container">
+    <div class="performance-panel__top reveal reveal-up" data-reveal="up" data-delay="0">
+      <h2>Mejora el <span>rendimiento</span><br />y <span>logística</span> de tu negocio</h2>
+      <a class="performance-panel__cta" href="https://kitstation.pe/empezar-con-kit/">Empezar ahora</a>
+    </div>
+
+    <div class="performance-panel__grid">
+      {performanceCards.map((card, index) => (
+        <article class="performance-card reveal reveal-up" data-reveal="up" data-delay={index * 70}>
+          <div class="performance-card__icon" data-icon={card.icon}>
+            {card.icon === "handshake" && (
+              <svg viewBox="0 0 74.93 61.67" aria-hidden="true">
+                <path d="M56.42,0l-6.38,6.38c-.32-.04-.64-.07-.96-.1-2.28-.92-6.35-1.58-11.12,2.09l-.11.1-1.56,1.57c-5.89-4-10.58-1.53-11.89-.67l-5.87-5.87L0,22.02l7.02,7.02c.06,3.14,1.17,6.37,3.35,9.63.9,1.34,1.94,2.58,3.07,3.73,1.45,1.47,2.91,2.91,4.37,4.37-1.58,2.3-.9,4.2.74,5.92,1.71,1.78,3.28,1.99,5.6,1.32.02,0,.04,0,.06.02,1.66,2.49,3.19,3.69,4.84,3.82.69.67,1.36,1.34,2.05,2,2.04,1.97,5.16,2.41,7.62,1,1.06-.61,1.24-1.11,1.79-1.98,4.16,3.5,6.95,3.56,10.22-1.35.01-.02.03-.03.06-.02,2.32.67,3.89.46,5.6-1.32,1.74-1.81,2.4-3.83.46-6.31-.01-.02-.51-.67-.49-.67,1.39.04,2.48-.84,3.09-1.62,1.61-2.08,1.51-4.27-.22-6.43.76-.76,1.52-1.51,2.27-2.27,1.13-1.15,2.18-2.38,3.07-3.73,2.17-3.26,3.29-6.48,3.35-9.63l7.02-7.02L56.42,0ZM14.56,39.7c-2.13-2.25-3.73-4.73-4.43-7.55-.15-.63-.26-1.27-.33-1.93-.05-.54-.07-1.09-.05-1.66l-7.11-7.12,15.3-15.3,4.9,4.9.32.32-.02.05,2.37.2.15-.38c.93-.64,4.81-2.79,9.99,1.16l6.85,6.88c.34.35.53.81.53,1.3s-.19.95-.54,1.3l-.45.45c-.72.71-1.88.71-2.6,0l-7.01-7.04-1.7,1.19,1.89,2.22.82.83c-.81.81-1.61,1.61-2.42,2.42-.2.2-.32.42-.37.64-.04.04-.08.08-.12.12-4.71,4.72-9.44,9.42-14.14,14.15-.94.95-1.56,1.9-1.86,2.85ZM37.27,58.79c-.54.51-1.1.83-1.91.77-1.12-.09-1.9-.94-2.44-1.48-.33-.33-.66-.66-.99-.98.78-.42,1.6-1,2.48-1.74.55.87.73,1.37,1.79,1.98.48.27.98.48,1.49.61-.09.35-.23.65-.43.84ZM47.37,57.85c-1.05,1.24-2.25,1.34-3.79-.08-.24-.22-.47-.45-.71-.67.33-.22.66-.47.95-.76.88-.85,1.75-1.71,2.62-2.56.09.09.19.19.28.28,1.44,1.45,1.64,2.62.64,3.79ZM54.69,54.02c-1.06,1.45-2.69,1.48-4.14.03-.72-.72-1.44-1.44-2.17-2.16,1.19-1.16,2.39-2.32,3.57-3.49.67.67,1.34,1.34,2.01,2.01,1.29,1.3,1.51,2.52.72,3.61ZM57.66,45.44c-.54,1.35-2.14,1.99-3.41,1.29-.13-.07-.24-.15-.36-.23,1.15-1.14,2.28-2.28,3.43-3.43.49.65.75,1.38.35,2.37ZM65.17,25.06c.02.56,0,1.12-.05,1.66-.06.66-.17,1.31-.33,1.93-.7,2.83-2.31,5.32-4.45,7.58-2.91,3.06-5.95,5.98-8.94,8.97-3.13,3.13-6.25,6.28-9.41,9.38-.54.53-1.32,1.39-2.44,1.48-.81.06-1.37-.25-1.91-.77-.49-.46-.65-1.62-.46-2.35.2-.79.9-1.5,1.51-2.12,1.43-1.46,2.88-2.9,4.32-4.34.7-.71,1.4-1.41,2.09-2.13.74-.76,2.89-2.37,1.68-3.5-1.11-1.04-2.7.96-3.36,1.63-.7.71-1.41,1.41-2.12,2.11-3.31,3.24-6.58,6.52-9.98,9.67-1.53,1.43-2.74,1.32-3.79.08-1-1.17-.81-2.34.64-3.79,3.75-3.76,7.52-7.52,11.27-11.28.53-.53.99-.87,1.08-1.68.07-.6-.15-1.12-.76-1.21-1.03-.15-1.48.24-2.15.9-4.42,4.42-8.84,8.85-13.26,13.26-1.45,1.45-3.08,1.42-4.14-.03-.79-1.08-.58-2.31.72-3.61,4.48-4.5,8.98-9,13.49-13.48.74-.73,1.31-1.55.41-2.39-.86-.81-1.6-.09-2.26.57-3.46,3.47-6.92,6.93-10.39,10.39-.46.46-.95.93-1.51,1.24-1.27.7-2.88.06-3.42-1.29-.56-1.38.16-2.26,1.03-3.14,5.75-5.73,11.49-11.45,17.19-17.23l2.35,2.36c.8.81,1.85,1.21,2.91,1.21s2.1-.4,2.9-1.19l.45-.45c.78-.77,1.2-1.8,1.21-2.9,0-1.03-.38-2-1.07-2.76l-5.22-5.27h0l-1.03-1.03,1.39-1.4c2.16-1.64,4.08-2.22,5.67-2.3,2.9-.26,5.48,1.26,5.48,1.26l1.54-1.54,4.9-4.91,15.3,15.3-7.11,7.12Z" />
+              </svg>
+            )}
+            {card.icon === "trophy" && (
+              <svg viewBox="0 0 54.82 61.49" aria-hidden="true">
+                <path d="M37.83,28.42c1.51-.18,2.96-.58,4.44-1.21,2.75-1.17,5.34-2.93,7.49-5.07,4.02-4.02,7.04-10.53,3.46-16.78-1.53-2.67-4.25-3.24-6.42-3.33-.9-1.27-2.36-2.03-4-2.03H11.86c-1.63,0-3.1.76-4,2.04-2.15.11-4.78.71-6.27,3.32-3.58,6.25-.56,12.77,3.46,16.78,2.14,2.14,4.73,3.9,7.49,5.07,1.46.62,2.91,1.02,4.4,1.2,1.09.57,1.71,1.62,1.17,3.21-.89,2.6-3.49,3.49-5.96,2.64-1.41-.49-2.01,1.74-.61,2.22,3.86,1.33,7.88-.68,8.92-4.67.05-.21.09-.41.12-.61l4.67,8.77v3.13s0,.09,0,.14v5.06c-7.73.35-15.26,2.62-15.26,6.57,0,4.3,8.93,6.62,17.33,6.62s17.33-2.32,17.33-6.62c0-3.95-7.56-6.23-15.31-6.57v-3.21c0-.22.02-.44.06-.63v-4.48l4.76-8.94c.03.25.07.51.14.78,1.03,3.99,5.08,6,8.92,4.67,1.39-.48.79-2.71-.61-2.22-2.47.85-5.07-.03-5.96-2.64-.54-1.58.08-2.63,1.16-3.2ZM17.34,25.99c-.23-.03-.45-.07-.67-.1-.31-.09-.63-.15-.96-.2-.73-.18-1.46-.42-2.2-.73-2.47-1.05-4.79-2.62-6.71-4.55C3.42,17.03.84,11.63,3.73,6.58c.69-1.2,1.79-1.75,3.26-1.97l10.88,21.39c-.25,0-.44,0-.53,0ZM32.7,50.42c.35.04.69.09,1.02.14.54.08,1.04.17,1.54.27.62.12,1.21.26,1.77.41.65.17,1.24.36,1.78.56.45.16.88.33,1.25.5,0,0,0,0,0,0,.32.15.6.3.86.45,1.23.71,1.89,1.46,1.89,2.12,0,1.99-5.89,4.77-15.49,4.77s-15.49-2.78-15.49-4.77c0-1.84,5.05-4.36,13.41-4.72v2.7c.02.61.25,1.07.6,1.39.92.85,2.65.7,3.3-.45.09-.15.16-.32.2-.51v-3.14c1.18.05,2.29.14,3.34.27ZM34.54,25.03l-6.34,11.91c-.28-.11-.57-.17-.87-.17s-.6.06-.87.17l-8.35-15.7L9.76,5.54c-.16-.31-.24-.64-.23-.97,0-.03,0-.05.01-.07,0-.05.02-.1.02-.15,0-.01,0-.03,0-.04.01-.06.03-.13.05-.19.01-.05.02-.1.04-.16.04-.12.09-.24.16-.35.1-.17.23-.33.37-.47.14-.14.31-.25.48-.35.21-.11.43-.19.67-.24.03,0,.07-.01.1-.02.14-.02.28-.04.42-.04h30.95s.01,0,.02,0h0c.14,0,.28.02.41.04.04,0,.07.01.11.02.13.03.25.06.37.11,0,0,0,0,.01,0,0,0,0,0,0,0,.09.04.18.08.27.13.26.14.48.33.67.55.03.04.06.09.09.13.03.04.07.09.09.13.17.28.25.58.27.89.01.24-.01.48-.09.71-.04.11-.07.22-.12.33l-10.37,19.49ZM36.82,25.99l10.81-21.25c0-.06,0-.11,0-.17,1.59.2,2.75.75,3.47,2,2.89,5.05.31,10.45-3.07,13.82-1.92,1.92-4.25,3.5-6.71,4.55-.71.3-1.4.53-2.1.71-.4.05-.79.13-1.16.24-.18.03-.37.06-.55.09-.11,0-.36,0-.67,0Z" />
+              </svg>
+            )}
+            {card.icon === "gears" && (
+              <svg viewBox="0 0 63.43 54.56" aria-hidden="true">
+                <g>
+                  <path d="M60.25,40.85c.85.16,1.67-.4,1.83-1.24l1.32-6.92c.08-.41,0-.83-.24-1.17-.23-.34-.59-.58-1-.66l-2.67-.51c-.12-1.46-.42-2.9-.89-4.29l2.25-1.53c.71-.49.9-1.46.41-2.17l-3.96-5.82c-.23-.34-.59-.58-1-.66-.41-.08-.83,0-1.17.24l-2.25,1.53c-1.13-.95-2.35-1.76-3.66-2.41l.51-2.67c.16-.85-.4-1.67-1.24-1.83l-6.92-1.32c-.41-.08-.83,0-1.17.24-.34.23-.58.59-.66,1l-.51,2.67c-1.46.13-2.9.42-4.3.89l-1.53-2.25c-.23-.34-.59-.58-1-.66-.41-.08-.83,0-1.17.24l-5.82,3.96c-.34.23-.58.59-.66,1-.08.41,0,.83.24,1.17l1.53,2.25c-.95,1.12-1.76,2.35-2.41,3.66l-2.67-.51c-.41-.08-.83,0-1.17.24-.34.23-.58.59-.66,1l-1.32,6.92c-.16.85.4,1.67,1.24,1.83l2.67.51c.13,1.46.42,2.9.89,4.29l-2.25,1.53c-.34.23-.58.59-.66,1-.08.41,0,.83.24,1.17l3.96,5.82c.23.34.59.58,1,.66.41.08.83,0,1.17-.24l2.25-1.53c1.13.95,2.35,1.76,3.66,2.41l-.51,2.67c-.16.85.4,1.67,1.24,1.83l6.92,1.32c.1.02.2.03.29.03.74,0,1.39-.52,1.54-1.27l.51-2.67c1.46-.12,2.9-.42,4.3-.89l1.53,2.25c.23.34.59.58,1,.66.41.08.83-.01,1.18-.24l5.82-3.96c.72-.49.9-1.46.41-2.17l-1.53-2.25c.95-1.13,1.75-2.35,2.41-3.66l2.67.51ZM55.23,37.97c-.75,1.79-1.81,3.4-3.17,4.81-.51.53-.59,1.35-.17,1.97l1.34,1.97-3.24,2.2-1.34-1.97c-.42-.61-1.21-.85-1.89-.57-1.8.74-3.7,1.14-5.64,1.17-.74.01-1.37.54-1.51,1.27l-.45,2.34-3.84-.73.45-2.34c.14-.73-.25-1.45-.94-1.74-1.79-.74-3.41-1.81-4.81-3.16-.53-.52-1.35-.59-1.97-.17l-1.97,1.34-2.2-3.23,1.97-1.34c.61-.42.85-1.2.57-1.89-.74-1.81-1.14-3.7-1.17-5.64-.01-.74-.54-1.37-1.27-1.51l-2.34-.45.73-3.84,2.34.45c.73.14,1.46-.25,1.74-.94.74-1.79,1.81-3.41,3.17-4.81.51-.53.59-1.35.17-1.97l-1.34-1.97,3.23-2.2,1.34,1.97c.42.61,1.21.85,1.89.57,1.81-.74,3.7-1.14,5.64-1.17.74-.01,1.37-.54,1.51-1.27l.45-2.34,3.84.73-.45,2.34c-.14.73.25,1.45.94,1.74,1.79.74,3.41,1.81,4.81,3.16.53.52,1.35.59,1.97.17l1.97-1.34,2.2,3.23-1.97,1.34c-.61.42-.85,1.21-.57,1.89.74,1.8,1.14,3.7,1.17,5.64.01.74.54,1.37,1.27,1.51l2.34.45-.73,3.84-2.34-.45c-.73-.14-1.45.25-1.74.94Z" />
+                  <path d="M42.95,20.92c-2.95-.56-5.95.06-8.43,1.75-2.49,1.69-4.17,4.25-4.73,7.2-.56,2.95.06,5.95,1.75,8.43,1.69,2.49,4.25,4.17,7.2,4.73h0c.71.14,1.42.2,2.11.2,5.29,0,10.02-3.76,11.05-9.14,1.16-6.09-2.85-12-8.95-13.16ZM48.82,33.49c-.41,2.13-1.62,3.98-3.41,5.19-1.79,1.22-3.96,1.67-6.08,1.26h0c-2.13-.41-3.98-1.62-5.19-3.41-1.22-1.79-1.67-3.96-1.26-6.09.41-2.13,1.62-3.98,3.41-5.19,1.36-.93,2.94-1.41,4.55-1.41.51,0,1.03.05,1.54.15,4.4.84,7.29,5.1,6.46,9.5Z" />
+                  <path d="M.59,16.88c.07.49.53.84,1.02.77l1.55-.22c.34.77.78,1.5,1.29,2.18l-.94,1.26c-.14.19-.21.43-.17.67.04.24.16.45.35.59l3.25,2.44c.4.3.97.22,1.26-.18l.94-1.26c.79.31,1.61.52,2.45.63l.22,1.55c.04.24.16.45.35.6.16.12.35.18.54.18.04,0,.09,0,.13,0l4.02-.58c.49-.07.84-.53.77-1.02l-.22-1.55c.77-.34,1.5-.78,2.18-1.29l1.26.94c.4.3.96.22,1.27-.18l2.44-3.25c.3-.4.22-.97-.18-1.27l-1.26-.94c.31-.79.52-1.61.63-2.45l1.55-.22c.24-.03.45-.16.59-.35.14-.19.21-.43.17-.67l-.58-4.02c-.07-.49-.53-.83-1.02-.77l-1.55.22c-.34-.77-.78-1.5-1.29-2.18l.94-1.26c.14-.19.21-.43.17-.67s-.16-.45-.35-.6l-3.25-2.44c-.19-.14-.43-.21-.67-.17-.24.03-.45.16-.6.35l-.94,1.26c-.79-.31-1.61-.52-2.45-.63l-.22-1.55c-.07-.49-.53-.83-1.02-.77l-4.02.58c-.24.03-.45.16-.6.35-.14.19-.2.43-.17.67l.22,1.55c-.77.34-1.5.77-2.18,1.29l-1.26-.94c-.19-.14-.43-.21-.67-.17-.24.03-.45.16-.59.35l-2.44,3.25c-.14.19-.21.43-.17.67.03.24.16.45.35.6l1.26.94c-.31.79-.52,1.61-.63,2.45l-1.55.22c-.24.03-.45.16-.59.35-.15.19-.21.43-.17.67l.58,4.02ZM3.29,13.29c.42-.06.75-.41.77-.84.07-1.12.35-2.2.82-3.22.18-.39.07-.85-.28-1.11l-1.1-.82,1.35-1.81,1.1.82c.34.26.82.24,1.14-.04.85-.74,1.81-1.32,2.86-1.7.4-.15.65-.55.59-.98l-.2-1.36,2.23-.32.2,1.36c.06.42.41.75.84.77,1.12.07,2.2.35,3.22.82.39.18.85.07,1.11-.28l.82-1.1,1.81,1.35-.83,1.1c-.26.34-.24.82.05,1.14.74.85,1.32,1.81,1.7,2.86.15.4.55.65.98.59l1.36-.19.32,2.23-1.36.2c-.42.06-.75.41-.77.84-.07,1.11-.35,2.2-.82,3.22-.18.39-.07.85.28,1.11l1.1.82-1.35,1.81-1.1-.82c-.34-.26-.82-.24-1.14.04-.85.74-1.81,1.32-2.86,1.7-.4.15-.65.55-.59.98l.2,1.36-2.23.32-.19-1.36c-.06-.42-.41-.75-.84-.77-1.12-.07-2.2-.35-3.22-.82-.12-.06-.25-.08-.38-.08-.28,0-.55.13-.72.36l-.83,1.1-1.81-1.35.82-1.1c.26-.34.24-.82-.04-1.14-.74-.85-1.32-1.81-1.7-2.86-.15-.4-.56-.65-.98-.59l-1.36.2-.32-2.23,1.36-.2Z" />
+                  <path d="M13.03,19.53c.31,0,.62-.02.93-.07,3.54-.51,6.01-3.81,5.5-7.35-.51-3.54-3.81-6.01-7.35-5.51-3.54.51-6.01,3.81-5.5,7.35.46,3.23,3.25,5.57,6.42,5.57ZM12.37,8.39c.22-.03.45-.05.67-.05,2.29,0,4.3,1.69,4.64,4.02.37,2.56-1.41,4.94-3.97,5.3-2.56.37-4.94-1.42-5.3-3.97-.37-2.56,1.41-4.94,3.97-5.31Z" />
+                </g>
+              </svg>
+            )}
+            {card.icon === "bulb" && (
+              <svg viewBox="0 0 33.31 62.03" aria-hidden="true">
+                <g>
+                  <path d="M2.97,30.38c0,1.86.11,3.48.69,5.87,1.02,4.16,3.52,9.85,4.39,11.79-.37.53-.58,1.15-.59,1.79,0,.81.3,1.57.82,2.16-.51.58-.82,1.31-.82,2.09,0,.92.38,1.76,1.02,2.37-.46.56-.73,1.25-.74,2.01-.02,1.85,1.59,3.37,3.59,3.39l12.97.17h.05c.99,0,1.94-.38,2.62-1.04.63-.61.98-1.42.98-2.27,0-.91-.38-1.76-1.02-2.37.47-.56.73-1.26.74-2.01,0-.81-.29-1.57-.82-2.16.51-.58.82-1.31.82-2.09,0-.81-.3-1.56-.81-2.15.91-2.02,3.34-7.6,4.34-11.69.57-2.38.69-4.01.69-5.87,0-7.98-6.49-14.47-14.47-14.47S2.97,22.41,2.97,30.38ZM25.45,59.42c-.28.27-.68.44-1.12.42l-12.97-.17c-.79-.01-1.43-.54-1.43-1.18,0-.49.4-.93.98-1.08.5-.13.84-.6.81-1.11-.02-.51-.4-.94-.91-1.03-.67-.11-1.17-.61-1.16-1.16,0-.47.37-.89.92-1.06.46-.14.77-.56.77-1.04,0-.48-.31-.9-.76-1.05-.56-.18-.93-.62-.93-1.1,0-.21.08-.38.16-.52h15.35c.2.2.33.46.32.73,0,.47-.37.89-.92,1.06-.46.14-.77.56-.77,1.04,0,.48.31.9.76,1.05.56.18.93.62.93,1.1,0,.49-.4.93-.98,1.08-.5.13-.84.6-.81,1.11.02.51.4.94.91,1.03.67.11,1.17.61,1.16,1.16,0,.34-.18.58-.33.72ZM17.44,18.11c6.77,0,12.28,5.51,12.28,12.28,0,1.69-.1,3.18-.63,5.35-.97,3.94-3.42,9.55-4.26,11.42h-14.77c-.84-1.87-3.29-7.47-4.26-11.42-.52-2.17-.63-3.66-.63-5.35,0-6.77,5.51-12.28,12.28-12.28Z" />
+                  <path d="M2.28,5.16c-.21-.27-.51-.44-.85-.48-.34-.04-.67.05-.94.26-.27.21-.44.51-.48.85-.04.34.05.67.26.94l6.53,8.29c.24.31.62.49,1,.49.01,0,.03,0,.04,0h0c.27-.01.53-.1.74-.27.27-.21.44-.51.48-.85.04-.34-.05-.67-.26-.94L2.28,5.16Z" />
+                  <path d="M25.94,15.2h0c.21.14.46.21.71.21.01,0,.03,0,.04,0,.41-.01.79-.23,1.02-.57l5.38-8.1c.19-.28.26-.63.19-.96-.07-.33-.26-.62-.54-.81-.28-.19-.62-.26-.96-.19-.33.07-.62.26-.81.54l-5.38,8.1c-.19.28-.26.62-.19.96.07.33.26.62.54.81Z" />
+                  <path d="M17.17,13.31s.04,0,.05,0,.03,0,.04,0c.66-.02,1.2-.56,1.23-1.22l.45-10.76c.02-.34-.1-.67-.34-.92-.23-.25-.55-.4-.88-.41-.34-.01-.67.1-.92.33-.25.23-.4.55-.41.89l-.45,10.76c-.01.34.1.67.33.92.23.25.55.4.89.41h0Z" />
+                  <path d="M9.68,28.34h0c.66.04,1.23-.46,1.28-1.12.02-.32.07-.62.14-.92.5-1.98,2.11-2.76,3.37-3.06.59-.14,1.03-.16,1.07-.16.66-.02,1.19-.57,1.17-1.23-.01-.65-.55-1.18-1.23-1.18-2.25.05-6.6,1.44-6.93,6.39-.04.66.46,1.23,1.12,1.28Z" />
+                </g>
+              </svg>
+            )}
+          </div>
+          <p class="performance-card__eyebrow">{card.eyebrow}</p>
+          <h3>{card.title}</h3>
+          <p>{card.copy}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

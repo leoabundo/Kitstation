@@ -1,0 +1,113 @@
+---
+import Reveal from "./Reveal.astro";
+
+const services = [
+  {
+    title: "Animacion digital 2D y 3D",
+    href: "/animacion-digital/",
+    image: "/images/service-animation.webp",
+    accent: "#3aaf61",
+    bullets: ["Motion graphics", "Animacion de personajes 3D", "Motion 3D para marcas", "Storyboard visual"]
+  },
+  {
+    title: "Diseño de Pagina Web",
+    href: "/diseno-de-pagina-web/",
+    image: "/images/service-web.webp",
+    accent: "#6945bb",
+    bullets: ["Creacion de interfaz", "E-commerce", "Formularios y base de datos", "Implementacion de WhatsApp"]
+  },
+  {
+    title: "Automatizacion con IA",
+    href: "/automatizacion-con-ia/",
+    image: "/images/service-automation.webp",
+    accent: "#2c70ff",
+    bullets: ["Respuestas 24h", "Chat con tecnologia GPT-4o", "Captacion automatizada", "Flujos por WhatsApp"]
+  },
+  {
+    title: "Campañas digitales",
+    href: "/campanas-digitales/",
+    image: "/images/service-campaigns.webp",
+    accent: "#454884",
+    bullets: ["Estrategias personalizadas", "Diseño y redaccion de anuncios", "Display y YouTube", "Campañas Search"]
+  },
+  {
+    title: "Posicionamiento SEO",
+    href: "/posicionamiento-seo/",
+    image: "/images/service-seo.webp",
+    accent: "#32b8d9",
+    bullets: ["Sube en Google", "Aumenta el trafico web", "SEO tecnico y contenido", "Analisis de competencia"]
+  },
+  {
+    title: "Consultoria y Soporte Tecnico",
+    href: "/consultoria-y-soporte/",
+    image: "/images/service-consulting.webp",
+    accent: "#f4bc22",
+    bullets: ["Gestion de proyectos", "Sistema de integraciones", "Proteccion de datos", "Seguridad informatica"]
+  },
+  {
+    title: "Creacion de Contenido",
+    href: "/creacion-de-contenido/",
+    image: "/images/service-content.jpg",
+    accent: "#7ea6f7",
+    bullets: ["Reels y TikToks", "Bancos de contenido", "Fotografia de producto", "Conceptos para marca"]
+  }
+];
+---
+
+<section class="objectives" id="objetivos">
+  <div class="container">
+    <Reveal class="objective-copy objective-copy--center" delay={0}>
+      <h2>¿Cual es tu proximo objetivo?</h2>
+    </Reveal>
+
+    <div
+      class="service-carousel service-carousel--objective reveal reveal-up"
+      data-reveal="up"
+      data-carousel
+      data-carousel-loop="5"
+    >
+      <div class="service-carousel__head">
+        <div class="service-carousel__controls">
+          <button type="button" aria-label="Objetivo anterior" data-carousel-prev>
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path
+                fill-rule="evenodd"
+                d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"
+              />
+            </svg>
+          </button>
+          <button type="button" aria-label="Objetivo siguiente" data-carousel-next>
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path
+                fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="service-carousel__track service-carousel__track--objective" data-carousel-track>
+        {services.map((service, index) => (
+          <article
+            class={`service-card${service.href.includes("/diseno-de-pagina-web/") ? " service-card--web" : ""}`}
+            style={`--accent:${service.accent}; --bg:url(${service.image})`}
+            data-delay={index * 50}
+          >
+            <a class="service-card__overlay" href={service.href} aria-label={`Ver ${service.title}`}></a>
+            <div class="service-card__content">
+              <p class="service-card__label">Servicio recomendado</p>
+              <h3>{service.title}</h3>
+              <ul>
+                {service.bullets.map((bullet) => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+              <span class="service-card__action">Empezar ahora</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
