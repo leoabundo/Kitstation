@@ -1,0 +1,480 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import MarqueeBar from "../components/MarqueeBar.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+import "../styles/global.css";
+---
+
+<BaseLayout title="Libro de Reclamaciones | KitStation" description="Libro de Reclamaciones Virtual de KitStation.">
+  <Header />
+  <MarqueeBar />
+  <main class="claims-page">
+    <section class="claims-page__section">
+      <div class="container">
+        <div class="claims-page__content">
+          <h1>Libro de Reclamaciones</h1>
+
+          <div class="claims-page__intro">
+            <p>
+              En cumplimiento con lo dispuesto en el Codigo de Proteccion y Defensa del Consumidor,
+              ponemos a tu disposicion nuestro <strong>Libro de Reclamaciones Virtual</strong>, a fin de
+              que puedas registrar cualquier queja o reclamo relacionado con un pedido o transaccion
+              realizada en nuestras paginas.
+            </p>
+          </div>
+
+          <form class="claims-form">
+            <h2>Libro de Reclamaciones Virtual</h2>
+
+            <div class="claims-form__group">
+              <label for="reclamo-id">Numero ID</label>
+              <input
+                id="reclamo-id"
+                name="reclamo_id"
+                type="text"
+                placeholder="Se generara automaticamente"
+                readonly
+              />
+            </div>
+
+            <section class="claims-form__block">
+              <h3>1. IDENTIFICACION DEL CONSUMIDOR RECLAMANTE</h3>
+
+              <div class="claims-form__group">
+                <label for="fecha-incidente">Fecha del incidente</label>
+                <input id="fecha-incidente" name="fecha_incidente" type="date" required />
+              </div>
+
+              <div class="claims-form__group">
+                <label for="nombre-completo">Nombre completo</label>
+                <input
+                  id="nombre-completo"
+                  name="nombre_completo"
+                  type="text"
+                  placeholder="Nombre y apellidos"
+                  required
+                />
+              </div>
+
+              <div class="claims-form__grid claims-form__grid--two">
+                <div class="claims-form__group">
+                  <label for="tipo-documento">Tipo de documento</label>
+                  <select id="tipo-documento" name="tipo_documento" required>
+                    <option value="">Por favor, elige una opcion</option>
+                    <option value="DNI">DNI</option>
+                    <option value="Carnet de Extranjeria">Carnet de Extranjeria</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                  </select>
+                </div>
+
+                <div class="claims-form__group">
+                  <label for="numero-documento">N. de documento</label>
+                  <input
+                    id="numero-documento"
+                    name="numero_documento"
+                    type="text"
+                    placeholder="Ej: 12345678"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="claims-form__grid claims-form__grid--two">
+                <div class="claims-form__group">
+                  <label for="correo-electronico">Correo electronico</label>
+                  <input
+                    id="correo-electronico"
+                    name="correo_electronico"
+                    type="email"
+                    placeholder="ejemplo@correo.com"
+                    required
+                  />
+                </div>
+
+                <div class="claims-form__group">
+                  <label for="telefono">Telefono</label>
+                  <input
+                    id="telefono"
+                    name="telefono"
+                    type="tel"
+                    placeholder="Ej: 987654321"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="claims-form__grid claims-form__grid--two">
+                <div class="claims-form__group">
+                  <label for="distrito">Distrito</label>
+                  <input
+                    id="distrito"
+                    name="distrito"
+                    type="text"
+                    placeholder="Ej: Miraflores"
+                    required
+                  />
+                </div>
+
+                <div class="claims-form__group">
+                  <label for="direccion">Direccion</label>
+                  <input
+                    id="direccion"
+                    name="direccion"
+                    type="text"
+                    placeholder="Ej: Av. Principal 123"
+                    required
+                  />
+                </div>
+              </div>
+            </section>
+
+            <section class="claims-form__block">
+              <h3>2. IDENTIFICACION DEL BIEN O SERVICIO CONTRATADO</h3>
+
+              <div class="claims-form__grid claims-form__grid--two">
+                <div class="claims-form__group">
+                  <label for="producto">Producto/servicio</label>
+                  <input
+                    id="producto"
+                    name="producto"
+                    type="text"
+                    placeholder="Ej: Servicio de diseno"
+                    required
+                  />
+                </div>
+
+                <div class="claims-form__group">
+                  <label for="monto-reclamado">Monto reclamado (S/)</label>
+                  <input
+                    id="monto-reclamado"
+                    name="monto_reclamado"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="Ej: 250.00"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="claims-form__group">
+                <label for="descripcion-monto">Descripcion del monto</label>
+                <textarea
+                  id="descripcion-monto"
+                  name="descripcion_monto"
+                  rows="4"
+                  placeholder="Explique el motivo del monto reclamado..."
+                  required
+                ></textarea>
+              </div>
+            </section>
+
+            <section class="claims-form__block">
+              <h3>3. DETALLE DE LA RECLAMACION Y PEDIDO DEL CONSUMIDOR</h3>
+
+              <div class="claims-form__grid claims-form__grid--two">
+                <div class="claims-form__group">
+                  <label for="tipo-reclamo">Tipo</label>
+                  <select id="tipo-reclamo" name="tipo_reclamo" required>
+                    <option value="">Por favor, elige una opcion</option>
+                    <option value="Reclamo">Reclamo</option>
+                    <option value="Queja">Queja</option>
+                  </select>
+                </div>
+
+                <div class="claims-form__group">
+                  <label for="fecha-pedido">Fecha del pedido/compra</label>
+                  <input id="fecha-pedido" name="fecha_pedido" type="date" required />
+                </div>
+              </div>
+
+              <fieldset class="claims-form__radios">
+                <legend>Tipo de entrega</legend>
+                <label>
+                  <input type="radio" name="tipo_envio" value="Delivery" checked />
+                  <span>Delivery</span>
+                </label>
+                <label>
+                  <input type="radio" name="tipo_envio" value="Recojo en tienda" />
+                  <span>Recojo en tienda</span>
+                </label>
+              </fieldset>
+
+              <div class="claims-form__group">
+                <label for="detalle-reclamo">Detalle del reclamo</label>
+                <textarea
+                  id="detalle-reclamo"
+                  name="detalle_reclamo"
+                  rows="5"
+                  placeholder="Explique el problema en detalle..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="claims-form__group">
+                <label for="descripcion-pedido">Pedido del consumidor</label>
+                <textarea
+                  id="descripcion-pedido"
+                  name="descripcion_pedido"
+                  rows="5"
+                  placeholder="Indique lo que solicita..."
+                  required
+                ></textarea>
+              </div>
+            </section>
+
+            <section class="claims-form__block claims-form__block--legal">
+              <h3>Consentimiento y aviso legal</h3>
+
+              <label class="claims-form__check">
+                <input type="checkbox" name="aviso_legal" required />
+                <span>
+                  He leido y acepto los
+                  <a href="/terminos-y-condiciones/" target="_blank" rel="noreferrer">
+                    Terminos y Condiciones
+                  </a>
+                  y la
+                  <a href="/politicas-y-privacidad/" target="_blank" rel="noreferrer">
+                    Politica y Privacidad
+                  </a>.
+                </span>
+              </label>
+
+              <input type="hidden" name="fecha_registro" />
+              <input type="hidden" name="hora_registro" />
+
+              <button type="submit">ENVIAR RECLAMO</button>
+            </section>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppButton />
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const pad = (value) => String(value).padStart(2, "0");
+    const now = new Date();
+    const fecha = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+    const hora = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+    const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
+    const id = `KS-${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}-${rand}`;
+
+    const idField = document.querySelector('input[name="reclamo_id"]');
+    const fechaField = document.querySelector('input[name="fecha_registro"]');
+    const horaField = document.querySelector('input[name="hora_registro"]');
+
+    if (idField) idField.value = id;
+    if (fechaField) fechaField.value = fecha;
+    if (horaField) horaField.value = hora;
+  });
+</script>
+
+<style>
+  .claims-page {
+    min-height: 100vh;
+    background: #fff;
+  }
+
+  .claims-page__section {
+    padding: 72px 0 90px;
+  }
+
+  .claims-page__content {
+    max-width: 980px;
+  }
+
+  .claims-page__content h1 {
+    margin: 0 0 26px;
+    color: #000;
+    font-size: clamp(3.1rem, 5.4vw, 5.4rem);
+    font-weight: 500;
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+  }
+
+  .claims-page__intro {
+    max-width: 920px;
+    margin-bottom: 34px;
+  }
+
+  .claims-page__intro p {
+    margin: 0;
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .claims-form {
+    display: grid;
+    gap: 30px;
+  }
+
+  .claims-form h2 {
+    margin: 0;
+    color: #000;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  .claims-form__block {
+    display: grid;
+    gap: 20px;
+  }
+
+  .claims-form__block h3 {
+    margin: 0;
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+
+  .claims-form__group {
+    display: grid;
+    gap: 8px;
+  }
+
+  .claims-form__group label,
+  .claims-form__radios legend {
+    color: #6b6b6b;
+    font-size: 0.98rem;
+    font-weight: 500;
+  }
+
+  .claims-form input[type="text"],
+  .claims-form input[type="email"],
+  .claims-form input[type="tel"],
+  .claims-form input[type="number"],
+  .claims-form input[type="date"],
+  .claims-form select,
+  .claims-form textarea {
+    width: 100%;
+    border: 1px solid #d8d8d8;
+    border-radius: 0;
+    background: #fff;
+    color: #111;
+    padding: 0 16px;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .claims-form input[type="text"],
+  .claims-form input[type="email"],
+  .claims-form input[type="tel"],
+  .claims-form input[type="number"],
+  .claims-form input[type="date"],
+  .claims-form select {
+    height: 42px;
+  }
+
+  .claims-form textarea {
+    min-height: 132px;
+    padding-top: 12px;
+    resize: vertical;
+  }
+
+  .claims-form__grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  .claims-form__grid--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .claims-form__radios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .claims-form__radios label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #000;
+    font-size: 1rem;
+  }
+
+  .claims-form__radios input {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+  }
+
+  .claims-form__block--legal {
+    padding-top: 6px;
+  }
+
+  .claims-form__check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #000;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .claims-form__check input {
+    width: 16px;
+    height: 16px;
+    margin: 3px 0 0;
+    flex: 0 0 auto;
+  }
+
+  .claims-form__check a {
+    color: #2f63ff;
+  }
+
+  .claims-form button {
+    width: 100%;
+    height: 48px;
+    border: 0;
+    border-radius: 0;
+    background: #000;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .claims-page__section {
+      padding: 52px 0 68px;
+    }
+
+    .claims-page__content h1 {
+      margin-bottom: 22px;
+      font-size: clamp(2.8rem, 13vw, 4.3rem);
+    }
+
+    .claims-page__intro {
+      margin-bottom: 28px;
+    }
+
+    .claims-form {
+      gap: 26px;
+    }
+
+    .claims-form h2 {
+      font-size: 1.8rem;
+    }
+
+    .claims-form__block h3 {
+      font-size: 1.45rem;
+      line-height: 1.18;
+    }
+
+    .claims-form__grid--two {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

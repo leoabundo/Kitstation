@@ -2564,6 +2564,11 @@ select {
     margin-top: 4px;
   }
 
+  .service-card li {
+    white-space: nowrap;
+    font-size: 0.78rem;
+  }
+
   .service-card__action {
     margin-top: 14px;
     padding: 10px 20px;

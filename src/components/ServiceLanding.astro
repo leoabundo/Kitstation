@@ -6,27 +6,49 @@ interface Props {
   pageTitle: string;
   metaDescription: string;
   title: string;
+  titleHtml?: string;
   subtitle?: string;
   accent: string;
   panelColor: string;
+  videoSrc?: string;
+  videoFit?: string;
+  videoPadding?: string;
+  contentWidth?: string;
+  titleWidth?: string;
+  titleSize?: string;
+  titleMobileSize?: string;
 }
 
 const {
   pageTitle,
   metaDescription,
   title,
+  titleHtml = "",
   subtitle = "",
   accent,
-  panelColor
+  panelColor,
+  videoSrc = "",
+  videoFit = "cover",
+  videoPadding = "0",
+  contentWidth = "450px",
+  titleWidth = "100%",
+  titleSize = "clamp(1.9rem, 2.7vw, 2.9rem)",
+  titleMobileSize = "clamp(1.1rem, 5.4vw, 1.9rem)"
 } = Astro.props;
 ---
 
 <BaseLayout title={pageTitle} description={metaDescription}>
-  <main class="service-form-page" style={`--service-accent:${accent}; --service-panel:${panelColor};`}>
+  <main
+    class="service-form-page"
+    style={`--service-accent:${accent}; --service-panel:${panelColor}; --service-video-fit:${videoFit}; --service-video-padding:${videoPadding};`}
+  >
     <section class="service-form-page__split">
       <div class="service-form-page__left">
-        <div class="service-form-page__content">
-          <h1>{title}</h1>
+        <div
+          class="service-form-page__content"
+          style={`--service-content-width:${contentWidth}; --service-title-size:${titleSize}; --service-title-mobile-size:${titleMobileSize};`}
+        >
+          {titleHtml ? <h1 style={`--service-title-width:${titleWidth};`} set:html={titleHtml}></h1> : <h1 style={`--service-title-width:${titleWidth};`}>{title}</h1>}
           {subtitle && <p class="service-form-page__subtitle">{subtitle}</p>}
 
           <form class="service-form-page__form">
@@ -38,13 +60,19 @@ const {
           </form>
 
           <p class="service-form-page__privacy">
-            Al avanzar, aceptas las <a href="https://kitstation.pe/politicas-y-privacidad/">Politica de privacidad</a>
+            Al avanzar, aceptas las <a href="/politicas-y-privacidad/">Politica de privacidad</a>
           </p>
         </div>
       </div>
 
       <div class="service-form-page__right">
-        <div class="service-form-page__video-slot" aria-hidden="true"></div>
+        <div class="service-form-page__video-slot" aria-hidden={videoSrc ? undefined : "true"}>
+          {videoSrc && (
+            <video class="service-form-page__video" autoplay muted playsinline loop preload="metadata">
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          )}
+        </div>
       </div>
     </section>
   </main>
@@ -71,17 +99,31 @@ const {
   }
 
   .service-form-page__content {
-    width: min(100%, 450px);
+    width: min(100%, var(--service-content-width));
     text-align: center;
     color: #fff;
   }
 
   .service-form-page__content h1 {
     margin: 0;
-    font-size: clamp(1.9rem, 2.7vw, 2.9rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100%, var(--service-title-width));
+    margin-inline: auto;
+    font-size: var(--service-title-size);
     font-weight: 500;
     line-height: 1.18;
     letter-spacing: -0.04em;
+  }
+
+  :global(.service-form-page__title-line) {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    margin-inline: auto;
+    white-space: nowrap;
+    text-align: center;
   }
 
   .service-form-page__subtitle {
@@ -146,8 +188,18 @@ const {
   }
 
   .service-form-page__video-slot {
+    display: grid;
+    place-items: center;
     width: 100%;
     height: 100%;
+    padding: var(--service-video-padding);
+  }
+
+  .service-form-page__video {
+    width: 100%;
+    height: 100%;
+    object-fit: var(--service-video-fit);
+    display: block;
   }
 
   @media (max-width: 900px) {
@@ -166,6 +218,12 @@ const {
 
     .service-form-page__content {
       width: min(100%, 440px);
+    }
+
+    .service-form-page__content h1 {
+      font-size: var(--service-title-mobile-size);
+      line-height: 1.16;
+      letter-spacing: -0.03em;
     }
   }
 </style>

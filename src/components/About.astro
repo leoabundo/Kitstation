@@ -169,6 +169,7 @@ const serviceHubCards = [
     image: "/images/service-hub/seguimiento-copia.webp",
     alt: "Tarjeta de Diseno Web KitStation",
     className: "hub-card hub-card--web",
+    href: "/websites/",
     video: "",
     description:
       "Disenamos experiencias web claras, modernas y enfocadas en conversion. Landing pages, sitios corporativos y interfaces visuales que ordenan tu propuesta y la presentan con fuerza."
@@ -273,18 +274,26 @@ const serviceHubCards = [
 
       {serviceHubCards.filter((card) => card.className).map((card) => (
         <article class={card.className}>
-          <label class="hub-card__link ripple-image" for={card.key} aria-label={`Ver ${card.title}`}>
-            <div class="hub-card__media">
-              <img src={card.image} alt={card.alt} loading="lazy" />
-            </div>
-          </label>
+          {card.href ? (
+            <a class="hub-card__link ripple-image" href={card.href} aria-label={`Ver ${card.title}`}>
+              <div class="hub-card__media">
+                <img src={card.image} alt={card.alt} loading="lazy" />
+              </div>
+            </a>
+          ) : (
+            <label class="hub-card__link ripple-image" for={card.key} aria-label={`Ver ${card.title}`}>
+              <div class="hub-card__media">
+                <img src={card.image} alt={card.alt} loading="lazy" />
+              </div>
+            </label>
+          )}
         </article>
       ))}
     </Reveal>
 
     <div class="service-hub__slides">
       {serviceHubCards
-        .filter((card) => card.key !== "hub-default")
+        .filter((card) => card.key !== "hub-default" && !card.href)
         .map((card) => (
           <article class={`service-slide service-slide--${card.key.replace("hub-", "")}`}>
             <label class="service-slide__back" for="hub-default">

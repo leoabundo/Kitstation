@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import MarqueeBar from "../components/MarqueeBar.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+import "../styles/global.css";
+---
+
+<BaseLayout title="Nosotros | KitStation" description="Conoce mas sobre KitStation, su enfoque, trayectoria y manera de construir proyectos visuales.">
+  <Header />
+  <MarqueeBar />
+  <main class="about-page">
+    <section class="about-page__section">
+      <div class="container">
+        <div class="about-page__content">
+          <h1>Nosotros</h1>
+
+          <p>
+            Fundado en 2024, <strong>KitStation</strong> es un estudio de diseño con sede en Lima, Perú,
+            especializado en crear experiencias visuales inmersivas y soluciones creativas que conectan con
+            el público de forma auténtica y estratégica.
+          </p>
+
+          <p>
+            Con una visión audaz, una dirección creativa refinada y un dominio técnico en constante
+            evolución, KitStation desarrolla contenido digital de alto impacto que combina arte, tecnología y
+            propósito. Nuestro trabajo abarca desde proyectos comerciales dirigidos por marcas hasta piezas
+            experimentales que empujan los límites del diseño y la narrativa visual.
+          </p>
+
+          <p>
+            Nuestro enfoque interdisciplinario integra CGI, dirección creativa, investigación y desarrollo,
+            diseño gráfico, gráficos en movimiento, desarrollo de marca, diseño experiencial y diseño web,
+            permitiéndonos construir soluciones visuales completas con una estética contemporánea, precisa y
+            emocionalmente poderosa.
+          </p>
+
+          <p>
+            En KitStation, no solo diseñamos. Creamos experiencias que inspiran, elevan marcas y desafían
+            lo convencional.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppButton />
+</BaseLayout>
+
+<style>
+  .about-page {
+    background: #fff;
+    color: #000;
+    min-height: 100vh;
+  }
+
+  .about-page__section {
+    padding: 96px 0 110px;
+  }
+
+  .about-page__content {
+    max-width: 740px;
+  }
+
+  .about-page__content h1 {
+    margin: 0 0 34px;
+    font-size: clamp(4rem, 9vw, 5.8rem);
+    font-weight: 500;
+    line-height: 0.94;
+    letter-spacing: -0.07em;
+    text-transform: none;
+  }
+
+  .about-page__content p {
+    margin: 0 0 26px;
+    color: #050505;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .about-page__content strong {
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .about-page__section {
+      padding: 56px 0 72px;
+    }
+
+    .about-page__content h1 {
+      margin-bottom: 24px;
+      font-size: clamp(3rem, 18vw, 4.6rem);
+    }
+
+    .about-page__content p {
+      margin-bottom: 20px;
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+  }
+</style>

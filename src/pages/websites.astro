@@ -1,0 +1,204 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+import "../styles/global.css";
+
+const websites = [
+  {
+    title: "Bodega Olcese",
+    href: "https://bodegaolcese.pe/",
+    image: "https://kitstation.pe/wp-content/uploads/2025/07/Captura-de-pantalla-2025-0sssss7-08-074800.png",
+    tags: ["Ecommerce", "Catalogo", "Comida"]
+  },
+  {
+    title: "Exiven",
+    href: "https://www.exiven.com/",
+    image: "https://kitstation.pe/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-08-074717.png",
+    tags: ["Ecommerce", "Merchandising", "Catalogo"]
+  },
+  {
+    title: "Pulsera Tyvek",
+    href: "https://pulserastyvek.pe/",
+    image: "https://kitstation.pe/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-08-074736.png",
+    tags: ["Ecommerce", "Market", "Catalogo"]
+  },
+  {
+    title: "Uncult Culture",
+    href: "https://uncultculture.com/",
+    image: "https://kitstation.pe/wp-content/uploads/2025/07/uncultculture.png",
+    tags: ["Ecommerce", "Shop", "Animation"]
+  },
+  {
+    title: "J y R Agro",
+    href: "https://jyragrotech.com/",
+    image: "https://kitstation.pe/wp-content/uploads/2026/01/Captura-1300x652.png",
+    tags: ["Ecommerce", "Catalogo", "Frutas"]
+  },
+  {
+    title: "Evil World",
+    href: "https://evilworld.pe/",
+    image: "https://kitstation.pe/wp-content/uploads/2026/04/Captur1a-1-1-1300x655.webp",
+    tags: ["Ecommerce", "Tienda", "Ropa"]
+  },
+  {
+    title: "Versounited",
+    href: "https://versounited.com/",
+    image: "https://kitstation.pe/wp-content/uploads/2026/04/versounited-1300x648.webp",
+    tags: ["Animated", "Theere,js", "3D"]
+  },
+  {
+    title: "Kitstation",
+    href: "https://kitstation.pe/",
+    image: "https://kitstation.pe/wp-content/uploads/2026/04/KIT-1300x625.png",
+    tags: ["AgencIA", "Theere,js", "Animacion DG"]
+  }
+];
+---
+
+<BaseLayout title="Paginas web | KitStation" description="Galeria de paginas web creadas por KitStation.">
+  <main class="websites-page">
+    <section class="websites-page__section">
+      <div class="websites-page__shell">
+        <h1>Paginas web</h1>
+
+        <div class="websites-page__grid">
+          {websites.map((website) => (
+            <article class="website-card">
+              <a class="website-card__image" href={website.href} target="_blank" rel="noreferrer">
+                <img src={website.image} alt={website.title} loading="lazy" />
+              </a>
+
+              <h2>{website.title}</h2>
+
+              <div class="website-card__tags">
+                {website.tags.map((tag) => (
+                  <span>{tag}</span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <WhatsAppButton />
+</BaseLayout>
+
+<style>
+  .websites-page {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+  }
+
+  .websites-page__section {
+    padding: 96px 0 72px;
+  }
+
+  .websites-page__shell {
+    width: min(1720px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .websites-page h1 {
+    margin: 0 0 42px;
+    font-size: clamp(3.6rem, 8vw, 5.4rem);
+    font-weight: 500;
+    line-height: 0.94;
+    letter-spacing: -0.06em;
+  }
+
+  .websites-page__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 42px 26px;
+  }
+
+  .website-card h2 {
+    margin: 14px 0 12px;
+    font-size: clamp(1.7rem, 2vw, 2.1rem);
+    font-weight: 500;
+    line-height: 1.02;
+  }
+
+  .website-card__image {
+    display: block;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.96);
+    border-radius: 30px;
+    background: #090909;
+  }
+
+  .website-card__image img {
+    width: 100%;
+    aspect-ratio: 16 / 8.2;
+    object-fit: cover;
+    transition: transform 0.28s ease;
+  }
+
+  .website-card__image:hover img {
+    transform: scale(1.03);
+  }
+
+  .website-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .website-card__tags span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 0 14px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 1180px) {
+    .websites-page__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .websites-page__section {
+      padding: 56px 0 46px;
+    }
+
+    .websites-page__shell {
+      width: min(100%, calc(100% - 28px));
+    }
+
+    .websites-page h1 {
+      margin-bottom: 26px;
+      font-size: clamp(2.8rem, 14vw, 4rem);
+    }
+
+    .websites-page__grid {
+      grid-template-columns: 1fr;
+      gap: 26px;
+    }
+
+    .website-card__image {
+      border-radius: 22px;
+    }
+
+    .website-card h2 {
+      font-size: 1.7rem;
+    }
+
+    .website-card__tags {
+      gap: 10px;
+    }
+
+    .website-card__tags span {
+      min-height: 38px;
+      padding: 0 14px;
+      font-size: 0.92rem;
+    }
+  }
+</style>
