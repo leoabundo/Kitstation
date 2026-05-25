@@ -6,23 +6,20 @@ import AnimatedPhone from "./AnimatedPhone.astro";
 <section class="hero">
   <div class="container hero__grid">
     <Reveal class="hero__content" delay={40}>
-      <p class="eyebrow hero__eyebrow">
-        Convierte ideas en clientes
+      <h1>
+        Convierte ideas
+        <br />
+        en clientes
         <span class="hero-face" aria-label="carita animada">
           <span class="hero-face__wink">;)</span>
           <span class="hero-face__open">:)</span>
         </span>
-      </p>
-      <h1>
-        Agencia de marketing digital
-        <br />
-        y desarrollo web en Peru
       </h1>
       <p class="hero__lead">
-        Disenamos paginas web profesionales, Google Ads, Meta Ads, automatizacion de WhatsApp y CRM personalizado para empresas en Peru.
+        <strong>Llega a tus clientes</strong> con ideas que marcan la diferencia.
       </p>
       <div class="hero__actions">
-        <a class="button button--primary hero__button" href="/contactanos/">Cotizar proyecto</a>
+        <a class="button button--primary hero__button" href="https://kitstation.pe/empezar-con-kit/">Empezar ahora →</a>
       </div>
     </Reveal>
 
@@ -31,18 +28,3 @@ import AnimatedPhone from "./AnimatedPhone.astro";
     </div>
   </div>
 </section>
-
-<style>
-  .hero__eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin: 0 0 18px;
-    color: #3d57e9;
-    letter-spacing: 0.14em;
-  }
-
-  .hero__eyebrow :global(.hero-face) {
-    font-size: 1.05rem;
-  }
-</style>
