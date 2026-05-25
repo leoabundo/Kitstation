@@ -1,9 +1,9 @@
-import { c as createComponent } from './astro-component_D20_m3Y2.mjs';
+import { c as createComponent } from './astro-component_DtKWzRzq.mjs';
 import 'piccolore';
-import { n as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute } from './entrypoint_CRvaNSz6.mjs';
-import { $ as $$BaseLayout } from './global_TAUqnPeN.mjs';
-import { $ as $$Footer } from './Footer_C1Ubw4tu.mjs';
-import { $ as $$WhatsAppButton } from './WhatsAppButton_Dj03BGSw.mjs';
+import { n as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute } from './entrypoint_C6k9hd8D.mjs';
+import { $ as $$BaseLayout } from './global_Dn0GJ-_t.mjs';
+import { $ as $$Footer } from './Footer_2_LwftBo.mjs';
+import { $ as $$WhatsAppButton } from './WhatsAppButton_CVLksrS8.mjs';
 
 const $$LandingPaginasWebs = createComponent(($$result, $$props, $$slots) => {
   const siteTypes = [

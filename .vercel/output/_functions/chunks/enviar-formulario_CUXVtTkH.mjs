@@ -1,6 +1,5 @@
 import nodemailer from 'nodemailer';
 
-const __vite_import_meta_env__ = {"ASSETS_PREFIX": undefined, "BASE_URL": "/", "DEV": false, "MODE": "production", "PROD": true, "SITE": "https://kitstation.pe", "SSR": true};
 const prerender = false;
 const JSON_HEADERS = {
   "Content-Type": "application/json"
@@ -67,11 +66,26 @@ function htmlValue(value) {
   return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;").replace(/\n/g, "<br>");
 }
 function getEnv(name) {
-  const value = Object.assign(__vite_import_meta_env__, { OS: "Windows_NT" })[name];
+  const value = process.env[name];
   return typeof value === "string" ? value.trim() : "";
 }
 function getRecipients() {
   return getEnv("MAIL_TO").split(",").map((item) => item.trim()).filter(Boolean);
+}
+function getMissingEnvVars(envMap) {
+  const missing = [];
+  for (const [key, value] of Object.entries(envMap)) {
+    if (Array.isArray(value)) {
+      if (value.length === 0) missing.push(key);
+      continue;
+    }
+    if (typeof value === "number") {
+      if (!Number.isFinite(value) || value <= 0) missing.push(key);
+      continue;
+    }
+    if (!value) missing.push(key);
+  }
+  return missing;
 }
 function getRequestMetadata(request, fallbackIp) {
   const forwardedFor = request.headers.get("x-forwarded-for");
@@ -106,6 +120,7 @@ const OPTIONS = async () => new Response(null, {
 });
 const POST = async ({ request, clientAddress }) => {
   try {
+    console.log("[api/enviar-formulario] Metodo recibido:", request.method);
     const formData = await request.formData();
     const honeypot = cleanValue(formData.get("website"), 150);
     if (honeypot !== "") {
@@ -123,6 +138,7 @@ const POST = async ({ request, clientAddress }) => {
     }
     const formName = data.formulario ?? "";
     const requiredFields = REQUIRED_FIELDS[formName];
+    console.log("[api/enviar-formulario] Formulario recibido:", formName || "(sin nombre)");
     if (!formName || !requiredFields) {
       return jsonResponse(422, {
         success: false,
@@ -160,17 +176,32 @@ const POST = async ({ request, clientAddress }) => {
     const mailFrom = getEnv("MAIL_FROM");
     const mailFromName = getEnv("MAIL_FROM_NAME") || "Formulario Web Kitstation";
     const recipients = getRecipients();
-    if (!smtpHost || !smtpPort || !smtpUser || !smtpPass || !mailFrom || recipients.length === 0) {
-      console.error("Mail env configuration is incomplete.");
+    console.log("[api/enviar-formulario] MAIL_TO existe:", recipients.length > 0 ? "si" : "no");
+    console.log("[api/enviar-formulario] SMTP_HOST:", smtpHost || "(vacio)");
+    console.log("[api/enviar-formulario] SMTP_PORT:", String(smtpPort || ""));
+    console.log("[api/enviar-formulario] SMTP_SECURE:", smtpSecure || "(vacio)");
+    console.log("[api/enviar-formulario] SMTP_USER:", smtpUser || "(vacio)");
+    const missingEnvVars = getMissingEnvVars({
+      SMTP_HOST: smtpHost,
+      SMTP_PORT: smtpPort,
+      SMTP_SECURE: smtpSecure,
+      SMTP_USER: smtpUser,
+      SMTP_PASS: smtpPass,
+      MAIL_FROM: mailFrom,
+      MAIL_TO: recipients
+    });
+    if (missingEnvVars.length > 0) {
+      console.error("[api/enviar-formulario] Configuracion SMTP incompleta. Faltan:", missingEnvVars.join(", "));
       return jsonResponse(500, {
         success: false,
-        message: "No se pudo enviar el formulario. Intentalo nuevamente."
+        message: "Configuración SMTP incompleta"
       });
     }
+    const useSecureConnection = smtpSecure === "ssl" || smtpSecure === "true" || smtpSecure !== "tls" && smtpPort === 465;
     const transporter = nodemailer.createTransport({
       host: smtpHost,
       port: smtpPort,
-      secure: smtpSecure === "ssl" || smtpSecure === "true" || smtpPort === 465,
+      secure: useSecureConnection,
       auth: {
         user: smtpUser,
         pass: smtpPass
@@ -220,10 +251,16 @@ ${plainFields}`;
       message: "Tu mensaje fue enviado correctamente. Te responderemos pronto."
     });
   } catch (error) {
-    console.error("Mail delivery failed:", error);
+    const mailError = error;
+    console.error("[api/enviar-formulario] Mail delivery failed:", {
+      name: mailError?.name || "Error",
+      code: mailError?.code || "SIN_CODIGO",
+      command: mailError?.command || "SIN_COMMAND",
+      message: mailError?.message || "Sin mensaje"
+    });
     return jsonResponse(500, {
       success: false,
-      message: "No se pudo enviar el formulario. Intentalo nuevamente."
+      message: "No se pudo enviar el formulario."
     });
   }
 };

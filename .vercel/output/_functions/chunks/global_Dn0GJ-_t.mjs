@@ -1,6 +1,6 @@
-import { c as createComponent } from './astro-component_D20_m3Y2.mjs';
+import { c as createComponent } from './astro-component_DtKWzRzq.mjs';
 import 'piccolore';
-import { r as renderTemplate, h as addAttribute, o as renderSlot, p as renderHead } from './entrypoint_CRvaNSz6.mjs';
+import { r as renderTemplate, h as addAttribute, o as renderSlot, p as renderHead } from './entrypoint_C6k9hd8D.mjs';
 import 'clsx';
 
 const revealScript = "/_astro/reveal.BmOWyOMQ.js";

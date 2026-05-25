@@ -1,7 +1,7 @@
-import { c as createComponent } from './astro-component_D20_m3Y2.mjs';
+import { c as createComponent } from './astro-component_DtKWzRzq.mjs';
 import 'piccolore';
-import { n as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute, u as unescapeHTML } from './entrypoint_CRvaNSz6.mjs';
-import { $ as $$BaseLayout } from './global_TAUqnPeN.mjs';
+import { n as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute, u as unescapeHTML } from './entrypoint_C6k9hd8D.mjs';
+import { $ as $$BaseLayout } from './global_Dn0GJ-_t.mjs';
 
 const $$ServiceLanding = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$props, $$slots);

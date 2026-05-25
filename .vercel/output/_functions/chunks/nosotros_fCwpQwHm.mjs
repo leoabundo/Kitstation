@@ -1,10 +1,10 @@
-import { c as createComponent } from './astro-component_D20_m3Y2.mjs';
+import { c as createComponent } from './astro-component_DtKWzRzq.mjs';
 import 'piccolore';
-import { n as renderComponent, r as renderTemplate, m as maybeRenderHead } from './entrypoint_CRvaNSz6.mjs';
-import { $ as $$BaseLayout } from './global_TAUqnPeN.mjs';
-import { $ as $$Header, a as $$MarqueeBar } from './MarqueeBar_B2leXtQh.mjs';
-import { $ as $$Footer } from './Footer_C1Ubw4tu.mjs';
-import { $ as $$WhatsAppButton } from './WhatsAppButton_Dj03BGSw.mjs';
+import { n as renderComponent, r as renderTemplate, m as maybeRenderHead } from './entrypoint_C6k9hd8D.mjs';
+import { $ as $$BaseLayout } from './global_Dn0GJ-_t.mjs';
+import { $ as $$Header, a as $$MarqueeBar } from './MarqueeBar_Wz8aY3tL.mjs';
+import { $ as $$Footer } from './Footer_2_LwftBo.mjs';
+import { $ as $$WhatsAppButton } from './WhatsAppButton_CVLksrS8.mjs';
 
 const $$Nosotros = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Nosotros | KitStation", "description": "Conoce mas sobre KitStation, su enfoque, trayectoria y manera de construir proyectos visuales.", "data-astro-cid-noeej2nj": true }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Header", $$Header, { "data-astro-cid-noeej2nj": true })} ${renderComponent($$result2, "MarqueeBar", $$MarqueeBar, { "data-astro-cid-noeej2nj": true })} ${maybeRenderHead()}<main class="about-page" data-astro-cid-noeej2nj> <section class="about-page__section" data-astro-cid-noeej2nj> <div class="container" data-astro-cid-noeej2nj> <div class="about-page__content" data-astro-cid-noeej2nj> <h1 data-astro-cid-noeej2nj>Nosotros</h1> <p data-astro-cid-noeej2nj>

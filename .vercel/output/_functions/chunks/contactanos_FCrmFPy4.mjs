@@ -1,10 +1,10 @@
-import { c as createComponent } from './astro-component_D20_m3Y2.mjs';
+import { c as createComponent } from './astro-component_DtKWzRzq.mjs';
 import 'piccolore';
-import { n as renderComponent, r as renderTemplate, m as maybeRenderHead } from './entrypoint_CRvaNSz6.mjs';
-import { $ as $$BaseLayout } from './global_TAUqnPeN.mjs';
-import { $ as $$Header, a as $$MarqueeBar } from './MarqueeBar_B2leXtQh.mjs';
-import { $ as $$Footer } from './Footer_C1Ubw4tu.mjs';
-import { $ as $$WhatsAppButton } from './WhatsAppButton_Dj03BGSw.mjs';
+import { n as renderComponent, r as renderTemplate, m as maybeRenderHead } from './entrypoint_C6k9hd8D.mjs';
+import { $ as $$BaseLayout } from './global_Dn0GJ-_t.mjs';
+import { $ as $$Header, a as $$MarqueeBar } from './MarqueeBar_Wz8aY3tL.mjs';
+import { $ as $$Footer } from './Footer_2_LwftBo.mjs';
+import { $ as $$WhatsAppButton } from './WhatsAppButton_CVLksrS8.mjs';
 
 const $$Contactanos = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Contactanos | KitStation", "description": "Habla con el equipo de KitStation para descubrir la solucion ideal para tu negocio.", "data-astro-cid-l27khc52": true }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Header", $$Header, { "data-astro-cid-l27khc52": true })} ${renderComponent($$result2, "MarqueeBar", $$MarqueeBar, { "data-astro-cid-l27khc52": true })} ${maybeRenderHead()}<main class="contact-page" data-astro-cid-l27khc52> <section class="contact-page__section" data-astro-cid-l27khc52> <div class="container contact-page__grid" data-astro-cid-l27khc52> <div class="contact-page__copy" data-astro-cid-l27khc52> <h1 data-astro-cid-l27khc52>Habla con nuestro equipo de ventas para descubrir cómo KitStation se adapta a tus necesidades</h1> <ul class="contact-page__benefits" data-astro-cid-l27khc52> <li data-astro-cid-l27khc52>Encuentra la solución perfecta para impulsar el crecimiento de tu negocio.</li> <li data-astro-cid-l27khc52>Pide una cotización adaptada a tus necesidades.</li> <li data-astro-cid-l27khc52>Aceleramos el crecimiento digital de tu empresa desde el primer mes.</li> <li data-astro-cid-l27khc52>Creamos experiencias digitales que convierten visitantes en clientes.</li> </ul> <blockquote class="contact-page__quote" data-astro-cid-l27khc52>

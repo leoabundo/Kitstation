@@ -1,6 +1,6 @@
-import { c as createComponent } from './astro-component_D20_m3Y2.mjs';
+import { c as createComponent } from './astro-component_DtKWzRzq.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, h as addAttribute, r as renderTemplate } from './entrypoint_CRvaNSz6.mjs';
+import { m as maybeRenderHead, h as addAttribute, r as renderTemplate } from './entrypoint_C6k9hd8D.mjs';
 import 'clsx';
 
 const $$Header = createComponent(($$result, $$props, $$slots) => {

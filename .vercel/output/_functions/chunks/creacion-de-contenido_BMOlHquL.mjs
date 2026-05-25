@@ -1,7 +1,7 @@
-import { c as createComponent } from './astro-component_D20_m3Y2.mjs';
+import { c as createComponent } from './astro-component_DtKWzRzq.mjs';
 import 'piccolore';
-import { n as renderComponent, r as renderTemplate } from './entrypoint_CRvaNSz6.mjs';
-import { $ as $$ServiceLanding } from './ServiceLanding_DITiv-Qa.mjs';
+import { n as renderComponent, r as renderTemplate } from './entrypoint_C6k9hd8D.mjs';
+import { $ as $$ServiceLanding } from './ServiceLanding_CSE0ZJtt.mjs';
 
 const $$CreacionDeContenido = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "ServiceLanding", $$ServiceLanding, { "pageTitle": "Creacion de Contenido | KitStation", "metaDescription": "Creacion de contenido para transformar tu mensaje en experiencias visuales.", "title": "Transformamos tu mensaje en experiencias visuales.", "titleHtml": "<span class='service-form-page__title-line'>Transformamos tu mensaje</span><span class='service-form-page__title-line'>en experiencias visuales.</span>", "accent": "#7ea6f7", "panelColor": "#031d2d", "videoSrc": "https://kitstation.pe/wp-content/uploads/2025/06/contenido.mp4", "videoFit": "contain", "videoPadding": "6vh 7vw", "titleWidth": "640px", "titleSize": "clamp(1.18rem, 1.68vw, 1.95rem)", "titleMobileSize": "clamp(0.92rem, 4vw, 1.38rem)", "formName": "Creacion de Contenido" })}`;
