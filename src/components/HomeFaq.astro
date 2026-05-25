@@ -1,0 +1,120 @@
+---
+import { homeFaqs } from "../data/homeFaq";
+---
+
+<section class="home-faq" id="faq" aria-labelledby="home-faq-title">
+  <div class="container">
+    <div class="home-faq__intro reveal reveal-up" data-reveal="up" data-delay="0">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2 id="home-faq-title">Respuestas claras para empresas que quieren crecer en digital</h2>
+      <p>
+        Resolvemos las dudas mas comunes sobre paginas web profesionales, Google Ads, Meta Ads, automatizacion de WhatsApp y CRM personalizado para empresas en Peru.
+      </p>
+    </div>
+
+    <div class="home-faq__list">
+      {homeFaqs.map((item, index) => (
+        <details class="home-faq__item reveal reveal-up" data-reveal="up" data-delay={index * 60} open={index === 0}>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+
+    <div class="home-faq__actions reveal reveal-up" data-reveal="up" data-delay="120">
+      <a class="button button--primary" href="/contactanos/">Hablar con Kitstation</a>
+      <a class="button button--ghost" href="/preguntas-frecuentes/">Ver mas preguntas</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-faq {
+    padding: 84px 0 92px;
+    background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+  }
+
+  .home-faq__intro {
+    max-width: 860px;
+    margin: 0 auto 34px;
+    text-align: center;
+  }
+
+  .home-faq__intro h2 {
+    margin: 0 0 14px;
+    color: #0d162f;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+  }
+
+  .home-faq__intro p:last-child {
+    margin: 0;
+    color: #5f6674;
+    font-size: 1rem;
+  }
+
+  .home-faq__list {
+    max-width: 980px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(13, 22, 47, 0.12);
+  }
+
+  .home-faq__item {
+    border-bottom: 1px solid rgba(13, 22, 47, 0.12);
+  }
+
+  .home-faq__item summary {
+    position: relative;
+    padding: 24px 34px 24px 0;
+    cursor: pointer;
+    list-style: none;
+    color: #0d162f;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .home-faq__item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .home-faq__item summary::after {
+    content: "+";
+    position: absolute;
+    top: 20px;
+    right: 0;
+    color: #5a6fe8;
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+
+  .home-faq__item[open] summary::after {
+    content: "-";
+  }
+
+  .home-faq__item p {
+    margin: 0;
+    padding: 0 0 24px;
+    color: #5f6674;
+  }
+
+  .home-faq__actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  @media (max-width: 900px) {
+    .home-faq {
+      padding: 64px 0 72px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .home-faq__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+</style>

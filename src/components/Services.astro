@@ -1,5 +1,6 @@
 ---
 import Reveal from "./Reveal.astro";
+import { servicePages } from "../data/servicePages";
 
 const services = [
   {
@@ -10,7 +11,7 @@ const services = [
     bullets: ["Motion graphics", "Animacion de personajes 3D", "Motion 3D para marcas", "Storyboard visual"]
   },
   {
-    title: "Diseño de Pagina Web",
+    title: "Diseno de Pagina Web",
     href: "/diseno-de-pagina-web/",
     image: "/images/service-web.webp",
     accent: "#6945bb",
@@ -24,11 +25,11 @@ const services = [
     bullets: ["Respuestas 24h", "Chat con tecnologia GPT-4o", "Captacion automatizada", "Flujos por WhatsApp"]
   },
   {
-    title: "Campañas digitales",
+    title: "Campanas digitales",
     href: "/campanas-digitales/",
     image: "/images/service-campaigns.webp",
     accent: "#454884",
-    bullets: ["Estrategias personalizadas", "Diseño y redaccion de anuncios", "Display y YouTube", "Campañas Search"]
+    bullets: ["Estrategias personalizadas", "Diseno y redaccion de anuncios", "Display y YouTube", "Campanas Search"]
   },
   {
     title: "Posicionamiento SEO",
@@ -54,10 +55,19 @@ const services = [
 ];
 ---
 
-<section class="objectives" id="objetivos">
+<section class="objectives" id="servicios" aria-labelledby="servicios-title">
   <div class="container">
     <Reveal class="objective-copy objective-copy--center" delay={0}>
-      <h2>¿Cual es tu proximo objetivo?</h2>
+      <p class="eyebrow">Servicios estrategicos para empresas en Peru</p>
+      <h2 id="servicios-title">¿Cual es tu proximo objetivo?</h2>
+      <p class="objective-copy__text">
+        En Kitstation combinamos paginas web profesionales, Google Ads, Meta Ads, automatizacion de WhatsApp, CRM personalizado y desarrollo web para negocios que quieren crecer con una estrategia clara.
+      </p>
+      <div class="objective-pills objective-pills--seo" aria-label="Enlaces a paginas de servicios">
+        {servicePages.map((service) => (
+          <a href={service.href}>{service.shortName}</a>
+        ))}
+      </div>
     </Reveal>
 
     <div
@@ -111,3 +121,18 @@ const services = [
     </div>
   </div>
 </section>
+
+<style>
+  .objective-copy__text {
+    max-width: 880px;
+    margin: 0 auto 22px;
+    color: #5f6674;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .objective-pills--seo {
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+</style>

@@ -6,16 +6,29 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  imageAlt?: string;
+  ogType?: string;
+  robots?: string;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
 const {
-  title = "Agencia Digital KitStation | Impulsa tu Marca con IA, Web",
-  description = "Impulsa tu negocio con diseño web, contenido, automatización con IA, campañas y posicionamiento SEO para crecer más rápido en digital.",
-  image = "/images/og-kitstation.jpg"
+  title = "Kitstation | Agencia de Marketing Digital y Desarrollo Web en Peru",
+  description = "Creamos paginas web, campanas en Google Ads y Meta Ads, automatizaciones de WhatsApp y sistemas CRM para empresas en Peru.",
+  image = "/images/og-kitstation.jpg",
+  imageAlt = "Portada de Kitstation con servicios de marketing digital y desarrollo web",
+  ogType = "website",
+  robots = "index,follow",
+  structuredData
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL(image, Astro.site);
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL(image, Astro.site).toString();
+const structuredDataItems = Array.isArray(structuredData)
+  ? structuredData
+  : structuredData
+    ? [structuredData]
+    : [];
 ---
 
 <!doctype html>
@@ -25,6 +38,7 @@ const ogImage = new URL(image, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
     <meta name="theme-color" content="#0553f1" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
@@ -36,12 +50,13 @@ const ogImage = new URL(image, Astro.site);
       rel="stylesheet"
     />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="KitStation" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={imageAlt} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -49,6 +64,9 @@ const ogImage = new URL(image, Astro.site);
     <meta name="twitter:image" content={ogImage} />
 
     <title>{title}</title>
+    {structuredDataItems.map((item) => (
+      <script type="application/ld+json" set:html={JSON.stringify(item)} />
+    ))}
   </head>
   <body>
     <slot />

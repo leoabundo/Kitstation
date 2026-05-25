@@ -78,10 +78,10 @@ const solutionPanels = [
 ];
 
 const resultCards = [
-  "Piezas visuales para marcas que necesitan mas claridad comercial.",
-  "Implementaciones de IA y WhatsApp enfocadas en conversion.",
-  "Landing pages y websites con estructura limpia y rendimiento real.",
-  "Campanas, contenido y SEO con enfoque de crecimiento medible."
+  "Piezas visuales para marcas que necesitan mas claridad comercial y mejor presencia digital.",
+  "Implementaciones de automatizacion de WhatsApp y CRM con foco en conversion.",
+  "Landing pages, paginas web profesionales y sistemas web con estructura limpia.",
+  "Google Ads, Meta Ads, contenido y SEO con enfoque de crecimiento medible."
 ];
 
 const performanceCards = [
@@ -181,6 +181,9 @@ const serviceHubCards = [
   <div class="container">
     <Reveal class="solutions-strip" delay={0}>
       <h2>Soluciones especificas<br />para tu empresa.</h2>
+      <p class="solutions-strip__copy">
+        Disenamos soluciones de marketing digital y desarrollo web para empresas en Peru que necesitan ordenar su captacion, fortalecer su marca y convertir mejor.
+      </p>
 
       <div class="solutions-slider" data-topic-slider>
         <button class="solutions-slider__arrow solutions-slider__arrow--prev" type="button" aria-label="Tema anterior" data-topic-prev>
@@ -235,10 +238,31 @@ const serviceHubCards = [
   </div>
 </section>
 
+<style>
+  .solutions-strip__copy {
+    max-width: 920px;
+    margin: 18px auto 0;
+    color: rgba(255, 255, 255, 0.74);
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .service-hub__intro-copy {
+    max-width: 920px;
+    margin: 18px auto 0;
+    color: rgba(255, 255, 255, 0.74);
+    text-align: center;
+    font-size: 1rem;
+  }
+</style>
+
 <section class="service-hub" id="servicios-hub">
   <div class="container">
     <Reveal class="service-hub__intro" delay={0}>
       <h2>Los servicios que necesitas<br />en un solo lugar</h2>
+      <p class="service-hub__intro-copy">
+        Desde paginas web y campanas en Google Ads o Meta Ads hasta automatizacion de WhatsApp, CRM personalizado y desarrollo web para negocios peruanos.
+      </p>
     </Reveal>
 
     <Reveal class="service-hub__board" delay={40}>

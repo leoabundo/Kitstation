@@ -5,18 +5,101 @@ import MarqueeBar from "../components/MarqueeBar.astro";
 import Hero from "../components/Hero.astro";
 import Services from "../components/Services.astro";
 import About from "../components/About.astro";
+import HomeFaq from "../components/HomeFaq.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
 import "../styles/global.css";
+import { homeFaqs } from "../data/homeFaq";
+import { servicePages } from "../data/servicePages";
+
+const siteUrl = new URL("/", Astro.site).toString();
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Kitstation",
+    url: siteUrl,
+    logo: new URL("/images/logo-kitstation.webp", Astro.site).toString(),
+    email: "contacto@kitstation.pe",
+    telephone: "+51901637020",
+    areaServed: {
+      "@type": "Country",
+      name: "Peru"
+    },
+    sameAs: [
+      "https://www.instagram.com/kitstationpe/",
+      "https://www.linkedin.com/in/kit-station-834b67377/",
+      "https://www.facebook.com/profile.php?id=61564378176610"
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "contacto@kitstation.pe",
+        telephone: "+51901637020",
+        areaServed: "PE",
+        availableLanguage: ["es"]
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Kitstation",
+    url: siteUrl
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Marketing digital y desarrollo web en Peru",
+    description:
+      "Paginas web, Google Ads, Meta Ads, automatizacion de WhatsApp, CRM personalizado y desarrollo web para empresas en Peru.",
+    provider: {
+      "@type": "Organization",
+      name: "Kitstation",
+      url: siteUrl
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Peru"
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Servicios de Kitstation",
+      itemListElement: servicePages.map((service) => ({
+        "@type": "OfferCatalog",
+        name: service.shortName,
+        url: new URL(service.href, Astro.site).toString()
+      }))
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: homeFaqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
+  }
+];
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Kitstation | Agencia de Marketing Digital y Desarrollo Web en Peru"
+  description="Creamos paginas web, campanas en Google Ads y Meta Ads, automatizaciones de WhatsApp y sistemas CRM para empresas en Peru. Cotiza con Kitstation."
+  structuredData={structuredData}
+>
   <Header />
   <MarqueeBar />
   <main>
     <Hero />
     <Services />
     <About />
+    <HomeFaq />
   </main>
   <Footer />
   <WhatsAppButton />
