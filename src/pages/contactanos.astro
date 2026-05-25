@@ -29,15 +29,18 @@ import "../styles/global.css";
         </div>
 
         <div class="contact-page__panel">
-          <form class="contact-page__form">
+          <form class="contact-page__form" method="POST" action="/api/enviar-formulario.php" data-mail-form>
             <h2>Comunícate con nuestro equipo de ventas</h2>
 
-            <input type="text" name="name" placeholder="Nombre" />
-            <input type="tel" name="phone" placeholder="Celular" />
-            <input type="email" name="email" placeholder="E-mail" />
+            <input type="hidden" name="formulario" value="Contacto" />
+            <input type="hidden" name="pagina_origen" value="" />
+            <input class="form-honeypot" type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" />
+            <input type="text" name="name" placeholder="Nombre" required />
+            <input type="tel" name="phone" placeholder="Celular" required />
+            <input type="email" name="email" placeholder="E-mail" required />
 
             <label class="contact-page__label" for="service">Que te gustaria hablar con nosotros</label>
-            <select id="service" name="service">
+            <select id="service" name="service" required>
               <option>Página web</option>
               <option>Animación digital</option>
               <option>Automatización con IA</option>
@@ -47,14 +50,15 @@ import "../styles/global.css";
               <option>Creación de contenido</option>
             </select>
 
-            <textarea name="message" placeholder="Déjanos tu consulta..."></textarea>
+            <textarea name="message" placeholder="Déjanos tu consulta..." required></textarea>
 
             <label class="contact-page__check">
-              <input type="checkbox" name="privacy" />
+              <input type="checkbox" name="privacy" required />
               <span>Acepto la Política de privacidad de kitstation.com.</span>
             </label>
 
             <button type="submit">ENVIAR CONSULTA</button>
+            <p class="form-feedback" role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>

@@ -25,8 +25,11 @@ import "../styles/global.css";
             </p>
           </div>
 
-          <form class="claims-form">
+          <form class="claims-form" method="POST" action="/api/enviar-formulario.php" data-mail-form>
             <h2>Libro de Reclamaciones Virtual</h2>
+            <input type="hidden" name="formulario" value="Libro de Reclamaciones" />
+            <input type="hidden" name="pagina_origen" value="" />
+            <input class="form-honeypot" type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" />
 
             <div class="claims-form__group">
               <label for="reclamo-id">Numero ID</label>
@@ -246,6 +249,7 @@ import "../styles/global.css";
               <input type="hidden" name="hora_registro" />
 
               <button type="submit">ENVIAR RECLAMO</button>
+              <p class="form-feedback" role="status" aria-live="polite"></p>
             </section>
           </form>
         </div>
@@ -258,20 +262,26 @@ import "../styles/global.css";
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    const pad = (value) => String(value).padStart(2, "0");
-    const now = new Date();
-    const fecha = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
-    const hora = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
-    const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
-    const id = `KS-${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}-${rand}`;
+    const form = document.querySelector(".claims-form");
+    const setRegistrationData = () => {
+      const pad = (value) => String(value).padStart(2, "0");
+      const now = new Date();
+      const fecha = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+      const hora = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+      const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
+      const id = `KS-${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}-${rand}`;
 
-    const idField = document.querySelector('input[name="reclamo_id"]');
-    const fechaField = document.querySelector('input[name="fecha_registro"]');
-    const horaField = document.querySelector('input[name="hora_registro"]');
+      const idField = form?.querySelector('input[name="reclamo_id"]');
+      const fechaField = form?.querySelector('input[name="fecha_registro"]');
+      const horaField = form?.querySelector('input[name="hora_registro"]');
 
-    if (idField) idField.value = id;
-    if (fechaField) fechaField.value = fecha;
-    if (horaField) horaField.value = hora;
+      if (idField) idField.value = id;
+      if (fechaField) fechaField.value = fecha;
+      if (horaField) horaField.value = hora;
+    };
+
+    setRegistrationData();
+    form?.addEventListener("mail-form:success", setRegistrationData);
   });
 </script>
 

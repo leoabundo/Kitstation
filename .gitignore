@@ -2,3 +2,5 @@ node_modules/
 dist/
 .astro/
 .env
+public/api/config-mail.php
+server/mail/config-mail.php

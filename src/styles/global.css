@@ -56,6 +56,33 @@ select {
   font: inherit;
 }
 
+.form-honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.form-feedback {
+  display: none;
+  margin: 12px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.form-feedback[data-state="success"] {
+  display: block;
+  color: #16843d;
+}
+
+.form-feedback[data-state="error"] {
+  display: block;
+  color: #c42d2d;
+}
+
 .container {
   width: var(--container);
   margin: 0 auto;
@@ -1916,8 +1943,8 @@ select {
 }
 
 .whatsapp-float__icon svg {
-  width: 24px;
-  height: 24px;
+  width: 31px;
+  height: 31px;
 }
 
 .whatsapp-float__label {

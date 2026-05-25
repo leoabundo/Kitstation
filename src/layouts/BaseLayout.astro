@@ -1,5 +1,6 @@
 ---
 import revealScript from "../scripts/reveal.js?url";
+import formsScript from "../scripts/forms.js?url";
 
 interface Props {
   title?: string;
@@ -52,5 +53,6 @@ const ogImage = new URL(image, Astro.site);
   <body>
     <slot />
     <script type="module" src={revealScript}></script>
+    <script type="module" src={formsScript}></script>
   </body>
 </html>

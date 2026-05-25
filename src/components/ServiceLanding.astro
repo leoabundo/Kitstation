@@ -17,6 +17,7 @@ interface Props {
   titleWidth?: string;
   titleSize?: string;
   titleMobileSize?: string;
+  formName?: string;
 }
 
 const {
@@ -33,7 +34,8 @@ const {
   contentWidth = "450px",
   titleWidth = "100%",
   titleSize = "clamp(1.9rem, 2.7vw, 2.9rem)",
-  titleMobileSize = "clamp(1.1rem, 5.4vw, 1.9rem)"
+  titleMobileSize = "clamp(1.1rem, 5.4vw, 1.9rem)",
+  formName = title
 } = Astro.props;
 ---
 
@@ -51,12 +53,16 @@ const {
           {titleHtml ? <h1 style={`--service-title-width:${titleWidth};`} set:html={titleHtml}></h1> : <h1 style={`--service-title-width:${titleWidth};`}>{title}</h1>}
           {subtitle && <p class="service-form-page__subtitle">{subtitle}</p>}
 
-          <form class="service-form-page__form">
-            <input type="text" name="company" placeholder="Nombre de Empresa" />
-            <input type="email" name="email" placeholder="Correo" />
-            <input type="tel" name="phone" placeholder="Celular" />
-            <textarea name="message" placeholder="Mensaje"></textarea>
+          <form class="service-form-page__form" method="POST" action="/api/enviar-formulario.php" data-mail-form>
+            <input type="hidden" name="formulario" value={formName} />
+            <input type="hidden" name="pagina_origen" value="" />
+            <input class="form-honeypot" type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" />
+            <input type="text" name="company" placeholder="Nombre de Empresa" required />
+            <input type="email" name="email" placeholder="Correo" required />
+            <input type="tel" name="phone" placeholder="Celular" required />
+            <textarea name="message" placeholder="Mensaje" required></textarea>
             <button type="submit">ENVIAR</button>
+            <p class="form-feedback" role="status" aria-live="polite"></p>
           </form>
 
           <p class="service-form-page__privacy">
