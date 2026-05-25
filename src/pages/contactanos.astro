@@ -7,7 +7,7 @@ import WhatsAppButton from "../components/WhatsAppButton.astro";
 import "../styles/global.css";
 ---
 
-<BaseLayout title="Contactanos | KitStation" description="Habla con el equipo de KitStation para descubrir la solucion ideal para tu negocio.">
+<BaseLayout title="Contáctanos | KitStation" description="Habla con el equipo de KitStation para descubrir la solución ideal para tu negocio.">
   <Header />
   <MarqueeBar />
   <main class="contact-page">
@@ -24,7 +24,7 @@ import "../styles/global.css";
           </ul>
 
           <blockquote class="contact-page__quote">
-            ”Despreocúpate del contenido digital. En KitStation nos encargamos de todo, para que tú puedas enfocarte en hacer crecer tu negocio.”
+            “Despreocúpate del contenido digital. En KitStation nos encargamos de todo, para que tú puedas enfocarte en hacer crecer tu negocio.”
           </blockquote>
         </div>
 
@@ -39,7 +39,7 @@ import "../styles/global.css";
             <input type="tel" name="phone" placeholder="Celular" required />
             <input type="email" name="email" placeholder="E-mail" required />
 
-            <label class="contact-page__label" for="service">Que te gustaria hablar con nosotros</label>
+            <label class="contact-page__label" for="service">¿Qué te gustaría hablar con nosotros?</label>
             <select id="service" name="service" required>
               <option>Página web</option>
               <option>Animación digital</option>
@@ -118,157 +118,92 @@ import "../styles/global.css";
   .contact-page__benefits li::before {
     content: "✓";
     position: absolute;
-    top: 1px;
     left: 0;
-    display: grid;
-    place-items: center;
-    width: 18px;
-    height: 18px;
-    border-radius: 999px;
-    background: #96a9ff;
-    color: #2438ff;
-    font-size: 0.82rem;
+    top: 0;
+    color: #1c54f8;
+    font-size: 1.2rem;
     font-weight: 700;
   }
 
   .contact-page__quote {
-    max-width: 720px;
-    margin: 88px 0 0;
-    padding: 26px 34px;
-    border-radius: 14px;
-    background: #efefef;
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.55;
-    text-align: center;
+    margin: 34px 0 0;
+    max-width: 760px;
+    color: #0d162f;
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    line-height: 1.35;
   }
 
   .contact-page__panel {
-    padding-top: 4px;
+    padding: 34px;
+    border-radius: 28px;
+    background: #fff;
+    box-shadow: 0 24px 68px rgba(9, 18, 37, 0.08);
   }
 
   .contact-page__form {
-    padding: 38px 34px 34px;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    border-radius: 22px;
-    background: #fff;
-    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+    display: grid;
+    gap: 14px;
   }
 
   .contact-page__form h2 {
-    margin: 0 0 28px;
-    color: #000;
-    font-size: 1.9rem;
-    font-weight: 600;
-    text-align: center;
+    margin: 0 0 6px;
+    color: #0d162f;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    line-height: 1.02;
   }
 
   .contact-page__form input,
   .contact-page__form select,
   .contact-page__form textarea {
     width: 100%;
-    border: 1px solid #9ba4b1;
-    border-radius: 10px;
+    border: 1px solid rgba(13, 22, 47, 0.12);
+    border-radius: 14px;
     background: #fff;
-    color: #111;
-    padding: 0 16px;
-    font-size: 1rem;
-    outline: none;
-  }
-
-  .contact-page__form input,
-  .contact-page__form select {
-    height: 40px;
-    margin-bottom: 16px;
+    color: #111827;
+    padding: 14px 16px;
   }
 
   .contact-page__form textarea {
-    min-height: 96px;
-    margin-bottom: 18px;
-    padding-top: 14px;
+    min-height: 140px;
     resize: vertical;
   }
 
   .contact-page__label {
-    display: block;
-    margin: 4px 0 10px;
-    color: #000;
-    font-size: 1rem;
+    color: #0d162f;
+    font-size: 0.95rem;
+    font-weight: 600;
   }
 
   .contact-page__check {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
-    margin-bottom: 18px;
-    color: #000;
-    font-size: 0.96rem;
+    color: #5f6674;
+    font-size: 0.92rem;
   }
 
   .contact-page__check input {
-    width: 14px;
-    height: 14px;
-    margin: 0;
-    padding: 0;
+    width: auto;
+    margin-top: 4px;
   }
 
   .contact-page__form button {
-    width: 100%;
-    height: 40px;
+    min-height: 52px;
     border: 0;
-    border-radius: 14px;
-    background: #000;
+    border-radius: 999px;
+    background: #1c54f8;
     color: #fff;
-    font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
   }
 
-  @media (max-width: 980px) {
+  @media (max-width: 960px) {
     .contact-page__grid {
       grid-template-columns: 1fr;
-      gap: 34px;
     }
 
-    .contact-page__copy {
-      padding-top: 0;
-    }
-
-    .contact-page__quote {
-      margin-top: 44px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .contact-page__section {
-      padding: 52px 0 66px;
-    }
-
-    .contact-page__copy h1 {
-      font-size: clamp(2.3rem, 11vw, 3.4rem);
-    }
-
-    .contact-page__benefits {
-      gap: 20px;
-    }
-
-    .contact-page__benefits li {
-      padding-left: 34px;
-      font-size: 0.96rem;
-    }
-
-    .contact-page__quote {
-      padding: 22px 20px;
-      font-size: 0.96rem;
-    }
-
-    .contact-page__form {
-      padding: 26px 18px 20px;
-      border-radius: 18px;
-    }
-
-    .contact-page__form h2 {
-      font-size: 1.35rem;
+    .contact-page__panel {
+      padding: 26px;
     }
   }
 </style>

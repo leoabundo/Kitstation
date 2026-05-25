@@ -3,7 +3,7 @@ const ERROR_MESSAGE =
   "No se pudo enviar el formulario. Intentalo nuevamente o escribenos por WhatsApp.";
 
 function setOrigin(form) {
-  const origin = form.querySelector('input[name="pagina_origen"]');
+  const origin = form.querySelector('input[name="página_origen"]');
   if (origin) {
     origin.value = window.location.href;
   }

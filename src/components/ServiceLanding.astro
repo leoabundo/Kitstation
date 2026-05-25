@@ -57,7 +57,7 @@ const {
             <input type="hidden" name="formulario" value={formName} />
             <input type="hidden" name="pagina_origen" value="" />
             <input class="form-honeypot" type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" />
-            <input type="text" name="company" placeholder="Nombre de Empresa" required />
+            <input type="text" name="company" placeholder="Nombre de empresa" required />
             <input type="email" name="email" placeholder="Correo" required />
             <input type="tel" name="phone" placeholder="Celular" required />
             <textarea name="message" placeholder="Mensaje" required></textarea>
@@ -66,7 +66,7 @@ const {
           </form>
 
           <p class="service-form-page__privacy">
-            Al avanzar, aceptas las <a href="/politicas-y-privacidad/">Politica de privacidad</a>
+            Al avanzar, aceptas la <a href="/politicas-y-privacidad/">Política de privacidad</a>
           </p>
         </div>
       </div>
@@ -100,104 +100,85 @@ const {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 120px 48px 72px;
     background: #000;
-    padding: 48px 32px;
   }
 
   .service-form-page__content {
     width: min(100%, var(--service-content-width));
-    text-align: center;
-    color: #fff;
   }
 
   .service-form-page__content h1 {
+    width: var(--service-title-width);
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: min(100%, var(--service-title-width));
-    margin-inline: auto;
+    color: #fff;
     font-size: var(--service-title-size);
-    font-weight: 500;
-    line-height: 1.18;
-    letter-spacing: -0.04em;
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.05em;
   }
 
-  :global(.service-form-page__title-line) {
+  .service-form-page__title-line {
     display: block;
-    width: max-content;
-    max-width: 100%;
-    margin-inline: auto;
-    white-space: nowrap;
-    text-align: center;
   }
 
   .service-form-page__subtitle {
-    margin: 34px 0 20px;
-    color: rgba(255, 255, 255, 0.92);
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.72);
     font-size: 1rem;
     line-height: 1.5;
   }
 
   .service-form-page__form {
     display: grid;
-    gap: 12px;
+    gap: 14px;
     margin-top: 28px;
   }
 
   .service-form-page__form input,
   .service-form-page__form textarea {
     width: 100%;
-    border: 0;
-    border-radius: 6px;
-    background: #fff;
-    color: #111;
-    padding: 0 16px;
-    font-size: 0.98rem;
-    outline: none;
-  }
-
-  .service-form-page__form input {
-    height: 46px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    padding: 14px 16px;
   }
 
   .service-form-page__form textarea {
-    min-height: 120px;
-    padding-top: 14px;
+    min-height: 136px;
     resize: vertical;
   }
 
   .service-form-page__form button {
-    height: 46px;
+    min-height: 52px;
     border: 0;
-    border-radius: 6px;
-    background: #3325ff;
+    border-radius: 999px;
+    background: var(--service-accent);
     color: #fff;
-    font-size: 0.96rem;
     font-weight: 700;
     cursor: pointer;
   }
 
   .service-form-page__privacy {
     margin: 18px 0 0;
-    color: rgba(255, 255, 255, 0.86);
+    color: rgba(255, 255, 255, 0.72);
     font-size: 0.92rem;
   }
 
   .service-form-page__privacy a {
-    color: #2382ff;
+    text-decoration: underline;
   }
 
   .service-form-page__right {
-    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
     background: var(--service-panel);
   }
 
   .service-form-page__video-slot {
-    display: grid;
-    place-items: center;
     width: 100%;
-    height: 100%;
     padding: var(--service-video-padding);
   }
 
@@ -205,31 +186,19 @@ const {
     width: 100%;
     height: 100%;
     object-fit: var(--service-video-fit);
-    display: block;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 960px) {
     .service-form-page__split {
       grid-template-columns: 1fr;
     }
 
     .service-form-page__left {
-      min-height: 100vh;
-      padding: 40px 24px;
-    }
-
-    .service-form-page__right {
-      display: none;
-    }
-
-    .service-form-page__content {
-      width: min(100%, 440px);
+      padding: 112px 24px 56px;
     }
 
     .service-form-page__content h1 {
       font-size: var(--service-title-mobile-size);
-      line-height: 1.16;
-      letter-spacing: -0.03em;
     }
   }
 </style>

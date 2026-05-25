@@ -14,7 +14,7 @@ interface Props {
 
 const { service, relatedServices } = Astro.props;
 const whatsappHref = `https://wa.me/51901637020?text=${encodeURIComponent(
-  `Hola, quiero informacion sobre ${service.shortName} para mi empresa.`
+  `Hola, quiero información sobre ${service.shortName} para mi empresa.`
 )}`;
 const serviceUrl = new URL(service.href, Astro.site).toString();
 const serviceSchema = {
@@ -25,7 +25,7 @@ const serviceSchema = {
   url: serviceUrl,
   areaServed: {
     "@type": "Country",
-    name: "Peru"
+    name: "Perú"
   },
   provider: {
     "@type": "Organization",
@@ -81,7 +81,7 @@ const breadcrumbSchema = {
 
         <div class="seo-service-page__hero-grid">
           <div class="seo-service-page__copy">
-            <p class="eyebrow">Servicio estrategico para empresas en Peru</p>
+            <p class="eyebrow">Servicio estratégico para empresas en Perú</p>
             <h1>{service.heading}</h1>
             <p class="seo-service-page__intro">{service.intro}</p>
             <p class="seo-service-page__summary">{service.summary}</p>
@@ -108,7 +108,7 @@ const breadcrumbSchema = {
       <div class="container">
         <div class="seo-service-page__section-copy">
           <p class="eyebrow">Beneficios</p>
-          <h2>Una solucion pensada para vender con mas orden</h2>
+          <h2>Una solución pensada para vender con más orden</h2>
         </div>
 
         <div class="seo-service-page__benefits">
@@ -126,7 +126,7 @@ const breadcrumbSchema = {
       <div class="container">
         <div class="seo-service-page__section-copy">
           <p class="eyebrow">Proceso de trabajo</p>
-          <h2>Como trabajamos cada proyecto</h2>
+          <h2>Cómo trabajamos cada proyecto</h2>
         </div>
 
         <div class="seo-service-page__process">

@@ -21,14 +21,14 @@ import "../styles/global.css";
               En cumplimiento con lo dispuesto en el Codigo de Proteccion y Defensa del Consumidor,
               ponemos a tu disposicion nuestro <strong>Libro de Reclamaciones Virtual</strong>, a fin de
               que puedas registrar cualquier queja o reclamo relacionado con un pedido o transaccion
-              realizada en nuestras paginas.
+              realizada en nuestras páginas.
             </p>
           </div>
 
           <form class="claims-form" method="POST" action="/api/enviar-formulario" data-mail-form>
             <h2>Libro de Reclamaciones Virtual</h2>
             <input type="hidden" name="formulario" value="Libro de Reclamaciones" />
-            <input type="hidden" name="pagina_origen" value="" />
+            <input type="hidden" name="página_origen" value="" />
             <input class="form-honeypot" type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" />
 
             <div class="claims-form__group">
@@ -86,10 +86,10 @@ import "../styles/global.css";
 
               <div class="claims-form__grid claims-form__grid--two">
                 <div class="claims-form__group">
-                  <label for="correo-electronico">Correo electronico</label>
+                  <label for="correo-electronico">Correo electrónico</label>
                   <input
                     id="correo-electronico"
-                    name="correo_electronico"
+                    name="correo_electrónico"
                     type="email"
                     placeholder="ejemplo@correo.com"
                     required
@@ -97,10 +97,10 @@ import "../styles/global.css";
                 </div>
 
                 <div class="claims-form__group">
-                  <label for="telefono">Telefono</label>
+                  <label for="teléfono">Teléfono</label>
                   <input
-                    id="telefono"
-                    name="telefono"
+                    id="teléfono"
+                    name="teléfono"
                     type="tel"
                     placeholder="Ej: 987654321"
                     required
@@ -143,7 +143,7 @@ import "../styles/global.css";
                     id="producto"
                     name="producto"
                     type="text"
-                    placeholder="Ej: Servicio de diseno"
+                    placeholder="Ej: Servicio de diseño"
                     required
                   />
                 </div>
@@ -240,7 +240,7 @@ import "../styles/global.css";
                   </a>
                   y la
                   <a href="/politicas-y-privacidad/" target="_blank" rel="noreferrer">
-                    Politica y Privacidad
+                    Política y Privacidad
                   </a>.
                 </span>
               </label>

@@ -5,33 +5,33 @@ export interface HomeFaqItem {
 
 export const homeFaqs: HomeFaqItem[] = [
   {
-    question: "Que servicios ofrece Kitstation?",
+    question: "¿Qué servicios ofrece Kitstation?",
     answer:
-      "Trabajamos marketing digital, paginas web profesionales, Google Ads, Meta Ads, automatizacion de WhatsApp, CRM personalizado y desarrollo de sistemas web para empresas en Peru."
+      "Trabajamos marketing digital, páginas web profesionales, Google Ads, Meta Ads, automatización de WhatsApp, CRM personalizado y desarrollo de sistemas web para empresas en Perú."
   },
   {
-    question: "Trabajan con empresas en Peru?",
+    question: "¿Trabajan con empresas en Perú?",
     answer:
-      "Si. Atendemos negocios en Lima y otras ciudades del Peru con soluciones digitales adaptadas a cada etapa comercial."
+      "Sí. Atendemos negocios en Lima y otras ciudades del Perú con soluciones digitales adaptadas a cada etapa comercial."
   },
   {
-    question: "Pueden crear una pagina web y tambien manejar campanas?",
+    question: "¿Pueden crear una página web y también manejar campañas?",
     answer:
-      "Si. Podemos desarrollar tu pagina web y luego activar Google Ads o Meta Ads para ayudarte a generar trafico, consultas y ventas."
+      "Sí. Podemos desarrollar tu página web y luego activar Google Ads o Meta Ads para ayudarte a generar tráfico, consultas y ventas."
   },
   {
-    question: "Que diferencia hay entre Google Ads y Meta Ads?",
+    question: "¿Qué diferencia hay entre Google Ads y Meta Ads?",
     answer:
-      "Google Ads capta demanda cuando una persona ya esta buscando un servicio. Meta Ads ayuda a generar interes y alcance en Facebook e Instagram con audiencias segmentadas."
+      "Google Ads capta demanda cuando una persona ya está buscando un servicio. Meta Ads ayuda a generar interés y alcance en Facebook e Instagram con audiencias segmentadas."
   },
   {
-    question: "Pueden automatizar WhatsApp para mi negocio?",
+    question: "¿Pueden automatizar WhatsApp para mi negocio?",
     answer:
-      "Si. Creamos flujos para responder leads, calificar consultas, asignar ventas y mantener seguimiento por WhatsApp sin perder velocidad comercial."
+      "Sí. Creamos flujos para responder leads, calificar consultas, asignar ventas y mantener seguimiento por WhatsApp sin perder velocidad comercial."
   },
   {
-    question: "Desarrollan sistemas CRM personalizados?",
+    question: "¿Desarrollan sistemas CRM personalizados?",
     answer:
-      "Si. Disenamos CRM personalizados para centralizar clientes, conversaciones, procesos de venta y reportes segun la operacion de tu empresa."
+      "Sí. Diseñamos CRM personalizados para centralizar clientes, conversaciones, procesos de venta y reportes según la operación de tu empresa."
   }
 ];

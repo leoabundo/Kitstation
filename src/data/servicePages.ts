@@ -23,35 +23,35 @@ export const servicePages: ServicePageConfig[] = [
   {
     slug: "diseno-web",
     href: "/servicios/diseno-web/",
-    shortName: "Diseno web",
-    title: "Diseno de paginas web para empresas en Peru",
-    pageTitle: "Diseno de paginas web para empresas en Peru | Kitstation",
+    shortName: "Diseño web",
+    title: "Diseño de páginas web para empresas en Perú",
+    pageTitle: "Diseño de páginas web para empresas en Perú | Kitstation",
     metaDescription:
-      "Creamos paginas web profesionales para empresas en Peru con enfoque comercial, velocidad de carga y una experiencia clara para convertir visitas en oportunidades.",
-    heading: "Diseno de paginas web para empresas en Peru",
+      "Creamos páginas web profesionales para empresas en Perú con enfoque comercial, velocidad de carga y una experiencia clara para convertir visitas en oportunidades.",
+    heading: "Diseño de páginas web para empresas en Perú",
     intro:
-      "Creamos paginas web profesionales para marcas que necesitan verse bien, cargar rapido y comunicar valor desde la primera visita.",
+      "Creamos páginas web profesionales para marcas que necesitan verse bien, cargar rápido y comunicar valor desde la primera visita.",
     summary:
-      "Nuestro equipo trabaja estructura, contenido y conversion para empresas en Lima y todo Peru que necesitan una presencia digital mas solida.",
+      "Nuestro equipo trabaja estructura, contenido y conversión para empresas en Lima y todo Perú que necesitan una presencia digital más sólida.",
     accent: "#6945bb",
     image: "/images/service-web.webp",
     benefits: [
       "Sitios corporativos y landings con estructura clara para vender mejor.",
-      "Contenido y jerarquia visual pensados para usuarios y buscadores.",
-      "Versiones optimizadas para mobile, formularios y captacion comercial."
+      "Contenido y jerarquía visual pensados para usuarios y buscadores.",
+      "Versiones optimizadas para mobile, formularios y captación comercial."
     ],
     process: [
       {
-        title: "Diagnostico y objetivos",
-        description: "Definimos el tipo de pagina, publico, mensajes y accion principal que debe lograr el sitio."
+        title: "Diagnóstico y objetivos",
+        description: "Definimos el tipo de página, público, mensajes y acción principal que debe lograr el sitio."
       },
       {
-        title: "Diseno y contenido",
-        description: "Ordenamos secciones, copy, llamadas a la accion e integraciones para que la web tenga claridad comercial."
+        title: "Diseño y contenido",
+        description: "Ordenamos secciones, copy, llamadas a la acción e integraciones para que la web tenga claridad comercial."
       },
       {
-        title: "Publicacion y mejora",
-        description: "Lanzamos la pagina, medimos el comportamiento inicial y dejamos lista la base para SEO y campanas."
+        title: "Publicación y mejora",
+        description: "Lanzamos la página, medimos el comportamiento inicial y dejamos lista la base para SEO y campañas."
       }
     ]
   },
@@ -59,34 +59,34 @@ export const servicePages: ServicePageConfig[] = [
     slug: "google-ads",
     href: "/servicios/google-ads/",
     shortName: "Google Ads",
-    title: "Servicio de Google Ads para empresas en Peru",
-    pageTitle: "Servicio de Google Ads para empresas en Peru | Kitstation",
+    title: "Servicio de Google Ads para empresas en Perú",
+    pageTitle: "Servicio de Google Ads para empresas en Perú | Kitstation",
     metaDescription:
-      "Gestionamos Google Ads para empresas en Peru con foco en captacion de leads, optimizacion de presupuesto y campanas Search, Display y YouTube.",
-    heading: "Servicio de Google Ads para empresas en Peru",
+      "Gestionamos Google Ads para empresas en Perú con foco en captación de leads, optimización de presupuesto y campañas Search, Display y YouTube.",
+    heading: "Servicio de Google Ads para empresas en Perú",
     intro:
-      "Llevamos trafico de alta intencion hacia tu negocio con campanas de Google Ads orientadas a conversion y control de presupuesto.",
+      "Llevamos tráfico de alta intención hacia tu negocio con campañas de Google Ads orientadas a conversión y control de presupuesto.",
     summary:
-      "Trabajamos keywords, anuncios, paginas de destino y medicion para que tus campanas generen contactos reales y no solo clics.",
+      "Trabajamos keywords, anuncios, páginas de destino y medición para que tus campañas generen contactos reales y no solo clics.",
     accent: "#1f5eff",
     image: "/images/service-campaigns.webp",
     benefits: [
-      "Campanas Search, Display y YouTube alineadas al objetivo comercial.",
-      "Segmentacion, copys y extensiones pensadas para empresas en Peru.",
-      "Optimizacion constante para mejorar costo por lead y calidad del trafico."
+      "Campañas Search, Display y YouTube alineadas al objetivo comercial.",
+      "Segmentación, copys y extensiones pensadas para empresas en Perú.",
+      "Optimización constante para mejorar costo por lead y calidad del tráfico."
     ],
     process: [
       {
-        title: "Investigacion de demanda",
-        description: "Detectamos terminos de busqueda, zonas y servicios con mejor potencial para tu negocio."
+        title: "Investigación de demanda",
+        description: "Detectamos términos de búsqueda, zonas y servicios con mejor potencial para tu negocio."
       },
       {
         title: "Lanzamiento controlado",
-        description: "Construimos campanas, grupos de anuncios, audiencias y conversiones con una estructura medible."
+        description: "Construimos campañas, grupos de anuncios, audiencias y conversiones con una estructura medible."
       },
       {
-        title: "Optimizacion semanal",
-        description: "Ajustamos pujas, anuncios, keywords y paginas para mejorar resultados con datos reales."
+        title: "Optimización semanal",
+        description: "Ajustamos pujas, anuncios, keywords y páginas para mejorar resultados con datos reales."
       }
     ]
   },
@@ -94,50 +94,50 @@ export const servicePages: ServicePageConfig[] = [
     slug: "meta-ads",
     href: "/servicios/meta-ads/",
     shortName: "Meta Ads",
-    title: "Servicio de Meta Ads en Peru",
-    pageTitle: "Servicio de Meta Ads en Peru | Kitstation",
+    title: "Servicio de Meta Ads en Perú",
+    pageTitle: "Servicio de Meta Ads en Perú | Kitstation",
     metaDescription:
-      "Creamos y optimizamos campanas de Meta Ads en Peru para empresas que quieren generar alcance, prospectos y ventas en Facebook e Instagram.",
-    heading: "Servicio de Meta Ads en Peru para captar clientes",
+      "Creamos y optimizamos campañas de Meta Ads en Perú para empresas que quieren generar alcance, prospectos y ventas en Facebook e Instagram.",
+    heading: "Servicio de Meta Ads en Perú para captar clientes",
     intro:
-      "Desarrollamos campanas de Meta Ads para que tu empresa gane visibilidad, atraiga prospectos y mantenga un flujo constante de oportunidades.",
+      "Desarrollamos campañas de Meta Ads para que tu empresa gane visibilidad, atraiga prospectos y mantenga un flujo constante de oportunidades.",
     summary:
-      "Combinamos segmentacion, creatividades y seguimiento comercial para que Facebook e Instagram trabajen a favor de tus ventas.",
+      "Combinamos segmentación, creatividades y seguimiento comercial para que Facebook e Instagram trabajen a favor de tus ventas.",
     accent: "#454884",
     image: "/images/service-campaigns.webp",
     benefits: [
       "Anuncios orientados a prospectos, mensajes y remarketing.",
-      "Creatividades y copys adaptados al tipo de oferta y al publico objetivo.",
+      "Creatividades y copys adaptados al tipo de oferta y al público objetivo.",
       "Lectura de resultados para escalar lo que mejor funciona."
     ],
     process: [
       {
-        title: "Definicion de audiencias",
-        description: "Seleccionamos segmentos por interes, comportamiento, ubicacion y etapa del embudo comercial."
+        title: "Definición de audiencias",
+        description: "Seleccionamos segmentos por interés, comportamiento, ubicación y etapa del embudo comercial."
       },
       {
         title: "Creatividad y pruebas",
-        description: "Creamos variaciones de anuncios y mensajes para encontrar el angulo de mejor respuesta."
+        description: "Creamos variaciones de anuncios y mensajes para encontrar el ángulo de mejor respuesta."
       },
       {
         title: "Seguimiento y escalado",
-        description: "Revisamos metricas clave para reducir desperdicio y potenciar los conjuntos ganadores."
+        description: "Revisamos métricas clave para reducir desperdicio y potenciar los conjuntos ganadores."
       }
     ]
   },
   {
     slug: "automatizacion-whatsapp",
     href: "/servicios/automatizacion-whatsapp/",
-    shortName: "Automatizacion de WhatsApp",
-    title: "Automatizacion de WhatsApp para empresas en Peru",
-    pageTitle: "Automatizacion de WhatsApp para empresas en Peru | Kitstation",
+    shortName: "Automatización de WhatsApp",
+    title: "Automatización de WhatsApp para empresas en Perú",
+    pageTitle: "Automatización de WhatsApp para empresas en Perú | Kitstation",
     metaDescription:
-      "Implementamos automatizacion de WhatsApp para empresas en Peru con respuestas iniciales, flujos comerciales, seguimiento y orden de conversaciones.",
-    heading: "Automatizacion de WhatsApp para empresas en Peru",
+      "Implementamos automatización de WhatsApp para empresas en Perú con respuestas iniciales, flujos comerciales, seguimiento y orden de conversaciones.",
+    heading: "Automatización de WhatsApp para empresas en Perú",
     intro:
-      "Automatizamos WhatsApp para que tu negocio responda mas rapido, organice consultas y avance oportunidades sin depender de seguimiento manual en cada paso.",
+      "Automatizamos WhatsApp para que tu negocio responda más rápido, organice consultas y avance oportunidades sin depender de seguimiento manual en cada paso.",
     summary:
-      "Es una solucion util para ventas, atencion y captacion cuando tu equipo necesita mas velocidad sin perder contexto comercial.",
+      "Es una solución útil para ventas, atención y captación cuando tu equipo necesita más velocidad sin perder contexto comercial.",
     accent: "#2c70ff",
     image: "/images/service-automation.webp",
     benefits: [
@@ -148,10 +148,10 @@ export const servicePages: ServicePageConfig[] = [
     process: [
       {
         title: "Mapeo del flujo comercial",
-        description: "Analizamos como llegan tus consultas y que datos debes capturar desde el primer mensaje."
+        description: "Analizamos cómo llegan tus consultas y qué datos debes capturar desde el primer mensaje."
       },
       {
-        title: "Automatizacion e integracion",
+        title: "Automatización e integración",
         description: "Configuramos mensajes, rutas, etiquetado y conexiones con formularios o CRM."
       },
       {
@@ -164,33 +164,33 @@ export const servicePages: ServicePageConfig[] = [
     slug: "crm-personalizado",
     href: "/servicios/crm-personalizado/",
     shortName: "CRM personalizado",
-    title: "CRM personalizado para empresas en Peru",
-    pageTitle: "CRM personalizado para empresas en Peru | Kitstation",
+    title: "CRM personalizado para empresas en Perú",
+    pageTitle: "CRM personalizado para empresas en Perú | Kitstation",
     metaDescription:
-      "Desarrollamos CRM personalizados para empresas en Peru con integracion a WhatsApp, seguimiento de clientes y procesos adaptados a cada operacion.",
-    heading: "CRM personalizado para WhatsApp y ventas en Peru",
+      "Desarrollamos CRM personalizados para empresas en Perú con integración a WhatsApp, seguimiento de clientes y procesos adaptados a cada operación.",
+    heading: "CRM personalizado para WhatsApp y ventas en Perú",
     intro:
-      "Creamos CRM personalizados para ordenar contactos, conversaciones, tareas y etapas comerciales segun la forma real en la que vende tu empresa.",
+      "Creamos CRM personalizados para ordenar contactos, conversaciones, tareas y etapas comerciales según la forma real en la que vende tu empresa.",
     summary:
-      "Un CRM bien hecho reduce perdida de seguimiento y da visibilidad a ventas, atencion y postventa desde un solo sistema.",
+      "Un CRM bien hecho reduce pérdida de seguimiento y da visibilidad a ventas, atención y postventa desde un solo sistema.",
     accent: "#f4bc22",
     image: "/images/service-consulting.webp",
     benefits: [
       "Registro centralizado de clientes, leads y conversaciones.",
       "Procesos hechos a medida para ventas, seguimiento y reportes.",
-      "Integracion con WhatsApp, formularios y herramientas internas cuando aplica."
+      "Integración con WhatsApp, formularios y herramientas internas cuando aplica."
     ],
     process: [
       {
         title: "Levantamiento funcional",
-        description: "Revisamos como trabaja tu equipo y que informacion necesita ver, registrar y activar."
+        description: "Revisamos cómo trabaja tu equipo y qué información necesita ver, registrar y activar."
       },
       {
         title: "Modelado del sistema",
-        description: "Definimos modulos, permisos, etapas y automatizaciones con foco en uso real."
+        description: "Definimos módulos, permisos, etapas y automatizaciones con foco en uso real."
       },
       {
-        title: "Implementacion y adopcion",
+        title: "Implementación y adopción",
         description: "Entregamos un CRM claro, entrenable y listo para crecer contigo."
       }
     ]
@@ -202,31 +202,31 @@ export const servicePages: ServicePageConfig[] = [
     title: "Desarrollo web para negocios peruanos",
     pageTitle: "Desarrollo web para negocios peruanos | Kitstation",
     metaDescription:
-      "Desarrollamos sistemas web para empresas en Peru, plataformas a medida y soluciones digitales para operaciones comerciales, ventas y gestion interna.",
-    heading: "Desarrollo web y sistemas web para empresas en Peru",
+      "Desarrollamos sistemas web para empresas en Perú, plataformas a medida y soluciones digitales para operaciones comerciales, ventas y gestión interna.",
+    heading: "Desarrollo web y sistemas web para empresas en Perú",
     intro:
-      "Construimos soluciones web a medida para empresas que necesitan procesos digitales mas ordenados, escalables y conectados con su operacion.",
+      "Construimos soluciones web a medida para empresas que necesitan procesos digitales más ordenados, escalables y conectados con su operación.",
     summary:
       "Desde una plataforma interna hasta un sistema comercial, trabajamos arquitectura funcional y una experiencia clara para negocios peruanos.",
     accent: "#131888",
     image: "/images/service-consulting.webp",
     benefits: [
-      "Sistemas web adaptados a procesos reales y no a plantillas genericas.",
+      "Sistemas web adaptados a procesos reales y no a plantillas genéricas.",
       "Mayor control de operaciones, usuarios, datos y reportes.",
-      "Base tecnica lista para integrar ventas, CRM, formularios y automatizaciones."
+      "Base técnica lista para integrar ventas, CRM, formularios y automatizaciones."
     ],
     process: [
       {
-        title: "Analisis del proceso",
-        description: "Identificamos cuellos de botella, datos clave y funcionalidades necesarias para tu operacion."
+        title: "Análisis del proceso",
+        description: "Identificamos cuellos de botella, datos clave y funcionalidades necesarias para tu operación."
       },
       {
-        title: "Desarrollo por modulos",
+        title: "Desarrollo por módulos",
         description: "Construimos el sistema por bloques claros para mantener velocidad, orden y control de calidad."
       },
       {
-        title: "Entrega y evolucion",
-        description: "Publicamos la solucion, validamos el uso real y dejamos una base lista para nuevas mejoras."
+        title: "Entrega y evolución",
+        description: "Publicamos la solución, validamos el uso real y dejamos una base lista para nuevas mejoras."
       }
     ]
   }
