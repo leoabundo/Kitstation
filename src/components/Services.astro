@@ -4,53 +4,53 @@ import { servicePages } from "../data/servicePages";
 
 const services = [
   {
-    title: "Animación digital 2D y 3D",
+    title: "AnimaciÃ³n digital 2D y 3D",
     href: "/animacion-digital/",
     image: "/images/service-animation.webp",
     accent: "#3aaf61",
-    bullets: ["Motion graphics", "Animación de personajes 3D", "Motion 3D para marcas", "Storyboard visual"]
+    bullets: ["Motion graphics", "AnimaciÃ³n de personajes 3D", "Motion 3D para marcas", "Storyboard visual"]
   },
   {
-    title: "Diseño de página web",
+    title: "DiseÃ±o de pÃ¡gina web",
     href: "/diseno-de-pagina-web/",
     image: "/images/service-web.webp",
     accent: "#6945bb",
-    bullets: ["Creación de interfaz", "E-commerce", "Formularios y base de datos", "Implementación de WhatsApp"]
+    bullets: ["CreaciÃ³n de interfaz", "E-commerce", "Formularios y base de datos", "ImplementaciÃ³n de WhatsApp"]
   },
   {
-    title: "Automatización con IA",
+    title: "AutomatizaciÃ³n con IA",
     href: "/automatizacion-con-ia/",
     image: "/images/service-automation.webp",
     accent: "#2c70ff",
-    bullets: ["Respuestas 24h", "Chat con tecnología GPT-4o", "Captación automatizada", "Flujos por WhatsApp"]
+    bullets: ["Respuestas 24h", "Chat con tecnologÃ­a GPT-4o", "CaptaciÃ³n automatizada", "Flujos por WhatsApp"]
   },
   {
-    title: "Campañas digitales",
+    title: "CampaÃ±as digitales",
     href: "/campanas-digitales/",
     image: "/images/service-campaigns.webp",
     accent: "#454884",
-    bullets: ["Estrategias personalizadas", "Diseño y redacción de anuncios", "Display y YouTube", "Campañas Search"]
+    bullets: ["Estrategias personalizadas", "DiseÃ±o y redacciÃ³n de anuncios", "Display y YouTube", "CampaÃ±as Search"]
   },
   {
     title: "Posicionamiento SEO",
     href: "/posicionamiento-seo/",
     image: "/images/service-seo.webp",
     accent: "#32b8d9",
-    bullets: ["Sube en Google", "Aumenta el tráfico web", "SEO técnico y contenido", "Análisis de competencia"]
+    bullets: ["Sube en Google", "Aumenta el trÃ¡fico web", "SEO tÃ©cnico y contenido", "AnÃ¡lisis de competencia"]
   },
   {
-    title: "Consultoría y soporte técnico",
+    title: "ConsultorÃ­a y soporte tÃ©cnico",
     href: "/consultoria-y-soporte/",
     image: "/images/service-consulting.webp",
     accent: "#f4bc22",
-    bullets: ["Gestión de proyectos", "Sistema de integraciones", "Protección de datos", "Seguridad informática"]
+    bullets: ["GestiÃ³n de proyectos", "Sistema de integraciones", "ProtecciÃ³n de datos", "Seguridad informÃ¡tica"]
   },
   {
-    title: "Creación de contenido",
+    title: "CreaciÃ³n de contenido",
     href: "/creacion-de-contenido/",
     image: "/images/service-content.jpg",
     accent: "#7ea6f7",
-    bullets: ["Reels y TikToks", "Bancos de contenido", "Fotografía de producto", "Conceptos para marca"]
+    bullets: ["Reels y TikToks", "Bancos de contenido", "FotografÃ­a de producto", "Conceptos para marca"]
   }
 ];
 ---
@@ -58,15 +58,10 @@ const services = [
 <section class="objectives" id="servicios" aria-labelledby="servicios-title">
   <div class="container">
     <Reveal class="objective-copy objective-copy--center" delay={0}>
-      <h2 id="servicios-title">¿Cuál es tu próximo objetivo?</h2>
+      <h2 id="servicios-title">Â¿CuÃ¡l es tu prÃ³ximo objetivo?</h2>
       <p class="objective-copy__text">
-        En Kitstation combinamos páginas web profesionales, Google Ads, Meta Ads, automatización de WhatsApp, CRM personalizado y desarrollo web para negocios que quieren crecer con una estrategia clara.
+        En Kitstation combinamos pÃ¡ginas web profesionales, Google Ads, Meta Ads, automatizaciÃ³n de WhatsApp, CRM personalizado y desarrollo web para negocios que quieren crecer con una estrategia clara.
       </p>
-      <div class="objective-pills objective-pills--seo" aria-label="Enlaces a páginas de servicios">
-        {servicePages.map((service) => (
-          <a href={service.href}>{service.shortName}</a>
-        ))}
-      </div>
     </Reveal>
 
     <div
@@ -130,8 +125,4 @@ const services = [
     font-size: 1rem;
   }
 
-  .objective-pills--seo {
-    justify-content: center;
-    margin-bottom: 30px;
-  }
 </style>
