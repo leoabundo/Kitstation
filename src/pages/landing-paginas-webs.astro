@@ -80,41 +80,49 @@ const principles = [
 const interactiveProjects = [
   {
     title: "Bodega Olcese",
+    href: "https://bodegaolcese.pe/",
     image: "/wp-content/uploads/2025/07/Captura-de-pantalla-2025-0sssss7-08-074800.png",
     alt: "Captura del sitio web Bodega Olcese"
   },
   {
     title: "Exiven",
+    href: "https://www.exiven.com/",
     image: "/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-08-074717.png",
     alt: "Captura del sitio web Exiven"
   },
   {
     title: "Pulsera Tyvek",
+    href: "https://pulserastyvek.pe/",
     image: "/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-08-074736.png",
     alt: "Captura del sitio web Pulsera Tyvek"
   },
   {
     title: "Uncult Culture",
+    href: "https://uncultculture.com/",
     image: "/wp-content/uploads/2025/07/uncultculture.png",
     alt: "Captura del sitio web Uncult Culture"
   },
   {
     title: "J y R Agro",
+    href: "https://jyragrotech.com/",
     image: "/wp-content/uploads/2026/01/Captura-1300x652.png",
     alt: "Captura del sitio web J y R Agro"
   },
   {
     title: "Evil World",
+    href: "https://evilworld.pe/",
     image: "/wp-content/uploads/2026/04/Captur1a-1-1-1300x655.webp",
     alt: "Captura del sitio web Evil World"
   },
   {
     title: "Versounited",
+    href: "https://versounited.com/",
     image: "/wp-content/uploads/2026/04/versounited-1300x648.webp",
     alt: "Captura del sitio web Versounited"
   },
   {
     title: "Kitstation",
+    href: "https://kitstation.pe/",
     image: "/wp-content/uploads/2026/04/KIT-1300x625.png",
     alt: "Captura del sitio web Kitstation"
   }
@@ -246,10 +254,12 @@ const interactiveProjects = [
                   data-index={index}
                   aria-label={project.title}
                 >
-                  <img src={project.image} alt={project.alt} loading="lazy" />
-                  <div class="landing-webs__web-slide-meta">
-                    <p>{project.title}</p>
-                  </div>
+                  <a href={project.href} target="_blank" rel="noreferrer" aria-label={`Abrir ${project.title}`}>
+                    <img src={project.image} alt={project.alt} loading="lazy" />
+                    <div class="landing-webs__web-slide-meta">
+                      <p>{project.title}</p>
+                    </div>
+                  </a>
                 </article>
               ))}
             </div>
@@ -986,6 +996,12 @@ const interactiveProjects = [
     opacity: 0;
     pointer-events: none;
     transform: translate3d(-50%, -50%, -420px) scale(0.6);
+  }
+
+  .landing-webs__web-slide > a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
   }
 
   .landing-webs__web-slide img {
