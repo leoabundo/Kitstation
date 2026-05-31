@@ -76,6 +76,29 @@ const principles = [
     text: "Entregamos una plataforma preparada para posicionar y convertir. Creada para competir en los motores de búsqueda."
   }
 ];
+
+const interactiveProjects = [
+  {
+    title: "Exiven X",
+    image: "/wp-content/uploads/2026/01/web-1.webp",
+    alt: "Captura del sitio web Exiven X"
+  },
+  {
+    title: "Bodega Olcese",
+    image: "/wp-content/uploads/2026/01/web-2.webp",
+    alt: "Captura del sitio web Bodega Olcese"
+  },
+  {
+    title: "J & R Agro",
+    image: "/wp-content/uploads/2026/01/web-3.webp",
+    alt: "Captura del sitio web J y R Agro"
+  },
+  {
+    title: "J & R Agro Vinedos",
+    image: "/wp-content/uploads/2026/01/Captura.png",
+    alt: "Captura del sitio web J y R Agro con vinedos"
+  }
+];
 ---
 
 <BaseLayout
@@ -186,11 +209,39 @@ const principles = [
         </div>
 
         <div class="landing-webs__interactive-visual">
-          <img
-            src="/wp-content/uploads/2026/01/web-3.webp"
-            alt="Vista interactiva de producto"
-            loading="lazy"
-          />
+          <div class="landing-webs__web-carousel" data-web-carousel aria-label="Carrusel 3D de proyectos web">
+            <button
+              class="landing-webs__web-carousel-control landing-webs__web-carousel-control--prev"
+              type="button"
+              aria-label="Proyecto anterior"
+              data-carousel-prev
+            >
+              <span aria-hidden="true">&#8249;</span>
+            </button>
+            <div class="landing-webs__web-carousel-stage" data-carousel-stage>
+              {interactiveProjects.map((project, index) => (
+                <article
+                  class="landing-webs__web-slide"
+                  data-carousel-slide
+                  data-index={index}
+                  aria-label={project.title}
+                >
+                  <img src={project.image} alt={project.alt} loading="lazy" />
+                  <div class="landing-webs__web-slide-meta">
+                    <p>{project.title}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <button
+              class="landing-webs__web-carousel-control landing-webs__web-carousel-control--next"
+              type="button"
+              aria-label="Proyecto siguiente"
+              data-carousel-next
+            >
+              <span aria-hidden="true">&#8250;</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -200,10 +251,6 @@ const principles = [
         <div class="landing-webs__chat-copy">
           <p class="landing-webs__section-kicker">Chat Inteligente IA</p>
           <h2>Sistemas de asistencia inteligente para responder dentro de tu web.</h2>
-          <p>
-            Entrenamos a nuestra IA para conocer tus productos, precios y gestión del negocio, y así
-            convertir dudas en oportunidades de venta.
-          </p>
           <a class="landing-webs__cta-link" href="/contactanos/">Empezar ahora</a>
         </div>
 
@@ -296,6 +343,61 @@ const principles = [
   type="module"
   src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
 ></script>
+
+<script is:inline>
+  document.querySelectorAll("[data-web-carousel]").forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll("[data-carousel-slide]"));
+    const prevButton = carousel.querySelector("[data-carousel-prev]");
+    const nextButton = carousel.querySelector("[data-carousel-next]");
+
+    if (!slides.length || !prevButton || !nextButton) return;
+
+    let activeIndex = 0;
+    let autoplayId;
+
+    const update = () => {
+      const total = slides.length;
+
+      slides.forEach((slide, index) => {
+        let offset = index - activeIndex;
+
+        if (offset > total / 2) offset -= total;
+        if (offset < -total / 2) offset += total;
+
+        slide.dataset.offset = String(offset);
+        slide.setAttribute("aria-hidden", offset === 0 ? "false" : "true");
+      });
+    };
+
+    const goTo = (nextIndex) => {
+      activeIndex = (nextIndex + slides.length) % slides.length;
+      update();
+    };
+
+    const startAutoplay = () => {
+      clearInterval(autoplayId);
+      autoplayId = window.setInterval(() => {
+        goTo(activeIndex + 1);
+      }, 4200);
+    };
+
+    prevButton.addEventListener("click", () => {
+      goTo(activeIndex - 1);
+      startAutoplay();
+    });
+
+    nextButton.addEventListener("click", () => {
+      goTo(activeIndex + 1);
+      startAutoplay();
+    });
+
+    carousel.addEventListener("mouseenter", () => clearInterval(autoplayId));
+    carousel.addEventListener("mouseleave", startAutoplay);
+
+    update();
+    startAutoplay();
+  });
+</script>
 
 <style>
   .sr-only {
@@ -807,10 +909,168 @@ const principles = [
     border-radius: 30px;
   }
 
-  .landing-webs__interactive-visual img {
+  .landing-webs__interactive-visual {
+    perspective: 1900px;
+  }
+
+  .landing-webs__web-carousel {
+    position: relative;
+    width: 100%;
+    min-height: 560px;
+    padding: 36px 74px;
+    overflow: hidden;
+    border-radius: 34px;
+    background:
+      radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.08) 0%, transparent 30%),
+      linear-gradient(180deg, rgba(18, 18, 18, 0.96) 0%, rgba(5, 5, 5, 1) 100%);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 28px 80px rgba(0, 0, 0, 0.42);
+  }
+
+  .landing-webs__web-carousel::after {
+    content: "";
+    position: absolute;
+    inset: auto 12% 24px;
+    height: 30px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 68%);
+    filter: blur(24px);
+    pointer-events: none;
+  }
+
+  .landing-webs__web-carousel-stage {
+    position: relative;
+    min-height: 488px;
+    transform-style: preserve-3d;
+  }
+
+  .landing-webs__web-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(100%, 680px);
+    overflow: hidden;
+    border-radius: 28px;
+    background: #090909;
+    box-shadow:
+      0 28px 70px rgba(0, 0, 0, 0.42),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    transition:
+      transform 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.52s ease,
+      filter 0.52s ease,
+      box-shadow 0.52s ease;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+  }
+
+  .landing-webs__web-slide img {
     aspect-ratio: 16 / 10;
     object-fit: cover;
-    background: #0d0d0d;
+    border-radius: 28px;
+  }
+
+  .landing-webs__web-slide-meta {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .landing-webs__web-slide-meta p {
+    margin: 0;
+    padding: 10px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    background: rgba(7, 7, 7, 0.62);
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .landing-webs__web-slide[data-offset="0"] {
+    z-index: 5;
+    opacity: 1;
+    filter: saturate(1);
+    transform: translate3d(-50%, -50%, 0) rotateY(0deg) scale(1);
+  }
+
+  .landing-webs__web-slide[data-offset="1"] {
+    z-index: 4;
+    opacity: 0.76;
+    filter: brightness(0.82);
+    transform: translate3d(calc(-50% + 250px), -50%, -180px) rotateY(-24deg) scale(0.88);
+  }
+
+  .landing-webs__web-slide[data-offset="-1"] {
+    z-index: 4;
+    opacity: 0.76;
+    filter: brightness(0.82);
+    transform: translate3d(calc(-50% - 250px), -50%, -180px) rotateY(24deg) scale(0.88);
+  }
+
+  .landing-webs__web-slide[data-offset="2"] {
+    z-index: 3;
+    opacity: 0.34;
+    filter: brightness(0.58);
+    transform: translate3d(calc(-50% + 430px), -50%, -320px) rotateY(-34deg) scale(0.72);
+  }
+
+  .landing-webs__web-slide[data-offset="-2"] {
+    z-index: 3;
+    opacity: 0.34;
+    filter: brightness(0.58);
+    transform: translate3d(calc(-50% - 430px), -50%, -320px) rotateY(34deg) scale(0.72);
+  }
+
+  .landing-webs__web-carousel-control {
+    position: absolute;
+    top: 50%;
+    z-index: 7;
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    background: rgba(10, 10, 10, 0.74);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+    transition:
+      background-color 0.25s ease,
+      transform 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .landing-webs__web-carousel-control:hover {
+    background: #0553f1;
+    border-color: rgba(5, 83, 241, 0.9);
+    transform: translateY(-50%) scale(1.04);
+  }
+
+  .landing-webs__web-carousel-control span {
+    font-size: 2rem;
+    line-height: 1;
+    margin-top: -2px;
+  }
+
+  .landing-webs__web-carousel-control--prev {
+    left: 18px;
+  }
+
+  .landing-webs__web-carousel-control--next {
+    right: 18px;
   }
 
   .landing-webs__chat-shell,
@@ -992,6 +1252,31 @@ const principles = [
       grid-template-columns: 1fr;
     }
 
+    .landing-webs__web-carousel {
+      min-height: 500px;
+      padding-inline: 56px;
+    }
+
+    .landing-webs__web-carousel-stage {
+      min-height: 430px;
+    }
+
+    .landing-webs__web-slide[data-offset="1"] {
+      transform: translate3d(calc(-50% + 180px), -50%, -160px) rotateY(-20deg) scale(0.84);
+    }
+
+    .landing-webs__web-slide[data-offset="-1"] {
+      transform: translate3d(calc(-50% - 180px), -50%, -160px) rotateY(20deg) scale(0.84);
+    }
+
+    .landing-webs__web-slide[data-offset="2"] {
+      transform: translate3d(calc(-50% + 300px), -50%, -280px) rotateY(-28deg) scale(0.68);
+    }
+
+    .landing-webs__web-slide[data-offset="-2"] {
+      transform: translate3d(calc(-50% - 300px), -50%, -280px) rotateY(28deg) scale(0.68);
+    }
+
     .landing-webs__benefit-grid,
     .landing-webs__feature-grid {
       grid-template-columns: 1fr;
@@ -1064,6 +1349,71 @@ const principles = [
     .landing-webs__hero-media {
       width: min(100%, 92vw);
       margin-bottom: 10px;
+    }
+
+    .landing-webs__interactive-visual {
+      perspective: none;
+    }
+
+    .landing-webs__web-carousel {
+      min-height: auto;
+      padding: 22px 16px 72px;
+      border-radius: 26px;
+    }
+
+    .landing-webs__web-carousel-stage {
+      min-height: 0;
+      display: grid;
+    }
+
+    .landing-webs__web-slide {
+      position: relative;
+      top: auto;
+      left: auto;
+      width: 100%;
+      grid-area: 1 / 1;
+      border-radius: 22px;
+    }
+
+    .landing-webs__web-slide img {
+      border-radius: 22px;
+    }
+
+    .landing-webs__web-slide[data-offset="0"] {
+      transform: none;
+    }
+
+    .landing-webs__web-slide[data-offset="1"],
+    .landing-webs__web-slide[data-offset="-1"] {
+      transform: translateY(18px) scale(0.92);
+      opacity: 0.16;
+      filter: brightness(0.52);
+    }
+
+    .landing-webs__web-slide[data-offset="2"],
+    .landing-webs__web-slide[data-offset="-2"] {
+      transform: translateY(28px) scale(0.86);
+      opacity: 0;
+    }
+
+    .landing-webs__web-carousel-control {
+      top: auto;
+      bottom: 14px;
+      transform: none;
+      width: 48px;
+      height: 48px;
+    }
+
+    .landing-webs__web-carousel-control:hover {
+      transform: scale(1.04);
+    }
+
+    .landing-webs__web-carousel-control--prev {
+      left: calc(50% - 58px);
+    }
+
+    .landing-webs__web-carousel-control--next {
+      right: calc(50% - 58px);
     }
 
     .landing-webs__benefits,
