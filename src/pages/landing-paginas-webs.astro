@@ -983,6 +983,9 @@ const interactiveProjects = [
       box-shadow 0.52s ease;
     transform-style: preserve-3d;
     will-change: transform, opacity;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(-50%, -50%, -420px) scale(0.6);
   }
 
   .landing-webs__web-slide img {
@@ -1019,6 +1022,7 @@ const interactiveProjects = [
     z-index: 5;
     opacity: 1;
     filter: saturate(1);
+    pointer-events: auto;
     transform: translate3d(-50%, -50%, 0) rotateY(0deg) scale(1);
   }
 
@@ -1026,6 +1030,7 @@ const interactiveProjects = [
     z-index: 4;
     opacity: 0.76;
     filter: brightness(0.82);
+    pointer-events: auto;
     transform: translate3d(calc(-50% + 250px), -50%, -180px) rotateY(-24deg) scale(0.88);
   }
 
@@ -1033,6 +1038,7 @@ const interactiveProjects = [
     z-index: 4;
     opacity: 0.76;
     filter: brightness(0.82);
+    pointer-events: auto;
     transform: translate3d(calc(-50% - 250px), -50%, -180px) rotateY(24deg) scale(0.88);
   }
 
@@ -1040,6 +1046,7 @@ const interactiveProjects = [
     z-index: 3;
     opacity: 0.34;
     filter: brightness(0.58);
+    pointer-events: none;
     transform: translate3d(calc(-50% + 430px), -50%, -320px) rotateY(-34deg) scale(0.72);
   }
 
@@ -1047,6 +1054,7 @@ const interactiveProjects = [
     z-index: 3;
     opacity: 0.34;
     filter: brightness(0.58);
+    pointer-events: none;
     transform: translate3d(calc(-50% - 430px), -50%, -320px) rotateY(34deg) scale(0.72);
   }
 
